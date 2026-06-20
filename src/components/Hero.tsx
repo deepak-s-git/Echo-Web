@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Monitor, Compass, Code, Terminal, Clock, Settings, LayoutGrid, RotateCcw, ShieldCheck, Home, Sliders, Search, Sparkles, FolderPlus, Eye, ChevronRight, Globe, Sidebar } from "lucide-react";
+import { Monitor, Code, Clock, LayoutGrid, ShieldCheck, Home, Sliders, Search, Sparkles, FolderPlus, Globe, Sidebar } from "lucide-react";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -225,22 +225,7 @@ export default function Hero() {
                 </div>
               </div>
 
-              {/* History Section */}
-              <div className="mb-6">
-                <span className="text-[9px] font-bold tracking-wider text-text-secondary uppercase block mb-2.5">History</span>
-                <div className="bg-white/2 hover:bg-white/4 border border-border-custom hover:border-white/10 rounded-xl p-3.5 flex items-center justify-between cursor-pointer transition-all duration-300 group">
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-text-secondary group-hover:scale-105 transition-transform">
-                      <Eye className="w-4 h-4 text-foreground/80" />
-                    </div>
-                    <div>
-                      <div className="text-xs font-semibold text-foreground">Browse Memories</div>
-                      <div className="text-[10px] text-text-secondary mt-0.5 leading-tight">Open timeline without recording</div>
-                    </div>
-                  </div>
-                  <ChevronRight className="w-4 h-4 text-text-secondary group-hover:translate-x-0.5 transition-transform" />
-                </div>
-              </div>
+
 
               {/* Recent Workflows Section */}
               <div className="mb-6">
