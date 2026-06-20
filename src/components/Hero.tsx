@@ -139,11 +139,14 @@ export default function Hero() {
           <div className="flex-1 grid grid-cols-[180px_1fr] sm:grid-cols-[200px_1fr] bg-black/10 overflow-hidden text-left">
             {/* Sidebar */}
             <div className="border-r border-border-custom p-4 flex flex-col select-none bg-black/25">
-              {/* Window Controls */}
-              <div className="flex gap-1.5 items-center mb-6">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F56] border border-[#E0443E]/20" />
-                <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E] border border-[#DEA123]/20" />
-                <span className="w-2.5 h-2.5 rounded-full bg-[#27C93F] border border-[#1AAB2F]/20" />
+              {/* Window Controls & Sidebar Toggle */}
+              <div className="flex justify-between items-center mb-6">
+                <div className="flex gap-1.5 items-center">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F56] border border-[#E0443E]/20" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E] border border-[#DEA123]/20" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#27C93F] border border-[#1AAB2F]/20" />
+                </div>
+                <Sidebar className="w-3.5 h-3.5 text-text-secondary hover:text-foreground transition-colors cursor-pointer" />
               </div>
 
               {/* Logo / Brand */}
@@ -189,7 +192,6 @@ export default function Hero() {
                   <span className="w-1.5 h-1.5 rounded-full bg-secondary" />
                   WORKFLOW MEMORY
                 </div>
-                <Sidebar className="w-4 h-4 text-text-secondary hover:text-foreground transition-colors cursor-pointer" />
               </div>
 
               {/* Header Title */}
