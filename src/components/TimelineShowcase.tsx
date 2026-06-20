@@ -182,9 +182,6 @@ export default function TimelineShowcase() {
             {/* Filter and Search Actions */}
             <div className="flex gap-2 self-end sm:self-auto">
               <div className="w-8 h-8 rounded-lg bg-white/4 flex items-center justify-center text-text-secondary hover:text-foreground cursor-pointer transition-colors">
-                <Search className="w-4 h-4" />
-              </div>
-              <div className="w-8 h-8 rounded-lg bg-white/4 flex items-center justify-center text-text-secondary hover:text-foreground cursor-pointer transition-colors">
                 <Filter className="w-4 h-4" />
               </div>
               <div className="w-8 h-8 rounded-lg bg-white/4 flex items-center justify-center text-text-secondary hover:text-foreground cursor-pointer transition-colors">
