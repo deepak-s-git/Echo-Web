@@ -3,9 +3,9 @@
 import React, { useState, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { 
-  Search, Filter, Database, CalendarRange, Workflow, Clock, 
-  Home, Sliders, ChevronDown, ChevronRight, MoreHorizontal, 
+import {
+  Search, Filter, Database, CalendarRange, Workflow, Clock,
+  Home, Sliders, ChevronDown, ChevronRight, MoreHorizontal,
   Globe, Code, Terminal, Layers, MessageSquare, Play, PlayCircle
 } from "lucide-react";
 
@@ -53,8 +53,8 @@ export default function TimelineShowcase() {
       title: "Design System Redesign",
       badge: "Active",
       lastActive: "Today at 11:20",
-      totalTime: "2h 45m",
-      sessionsCount: 4,
+      totalTime: "2h 05m",
+      sessionsCount: 2,
       apps: [
         { name: "Figma", color: "#F24E1E", icon: <Layers className="w-3 h-3 text-white" />, letter: "F" },
         { name: "VS Code", color: "#007ACC", icon: <Code className="w-3 h-3 text-white" />, letter: "C" },
@@ -71,7 +71,7 @@ export default function TimelineShowcase() {
       title: "Next.js Landing Page",
       badge: "Continued 2 times",
       lastActive: "Today at 09:15",
-      totalTime: "12m",
+      totalTime: "27m",
       sessionsCount: 3,
       apps: [
         { name: "Chrome", color: "#EA4335", icon: <Globe className="w-3 h-3 text-white" />, letter: "C" },
@@ -116,7 +116,7 @@ export default function TimelineShowcase() {
 
       {/* Main App Layout Mockup */}
       <div className="reveal-showcase w-full bg-[#0d0d0e]/95 border border-white/8 shadow-[0_30px_80px_rgba(0,0,0,0.6)] rounded-2xl overflow-hidden flex flex-col md:grid md:grid-cols-[200px_1fr] min-h-[580px]">
-        
+
         {/* macOS Left Sidebar (hidden on mobile, shown on md+) */}
         <div className="hidden md:flex flex-col p-4 bg-black/30 border-r border-border-custom">
           {/* Window Controls */}
@@ -159,12 +159,12 @@ export default function TimelineShowcase() {
 
         {/* Right Main Content Pane */}
         <div className="p-6 md:p-8 flex flex-col overflow-y-auto bg-black/10">
-          
+
           {/* Timeline View Header */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 border-b border-border-custom/50 pb-5 select-none">
             <div className="flex items-center gap-3">
               <h3 className="text-2xl font-black text-foreground tracking-tight">Timeline</h3>
-              
+
               {/* Status Badges */}
               <div className="flex gap-2 text-[10px] font-bold text-text-secondary">
                 <span className="bg-white/4 px-2 py-0.5 rounded-full flex items-center gap-1">
@@ -198,14 +198,13 @@ export default function TimelineShowcase() {
             {workflows.map((wf) => {
               const isExpanded = expandedId === wf.id;
               return (
-                <div 
+                <div
                   key={wf.id}
                   onClick={() => setExpandedId(isExpanded ? null : wf.id)}
-                  className={`border transition-all duration-300 rounded-xl overflow-hidden cursor-pointer select-none ${
-                    isExpanded 
-                      ? "bg-white/4 border-white/12 shadow-md" 
-                      : "bg-white/2 hover:bg-white/4 border-border-custom hover:border-white/8"
-                  }`}
+                  className={`border transition-all duration-300 rounded-xl overflow-hidden cursor-pointer select-none ${isExpanded
+                    ? "bg-white/4 border-white/12 shadow-md"
+                    : "bg-white/2 hover:bg-white/4 border-border-custom hover:border-white/8"
+                    }`}
                 >
                   {/* Card Main Info Row */}
                   <div className="p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
@@ -225,7 +224,7 @@ export default function TimelineShowcase() {
                             </span>
                           )}
                         </div>
-                        
+
                         <div className="text-[11px] text-text-secondary mt-1 flex flex-wrap items-center gap-x-2 gap-y-1">
                           <span>Last Active: {wf.lastActive}</span>
                           <span className="text-white/20">•</span>
@@ -241,7 +240,7 @@ export default function TimelineShowcase() {
                       {/* Overlapping App Icons */}
                       <div className="flex -space-x-1.5 overflow-hidden">
                         {wf.apps.map((app, idx) => (
-                          <div 
+                          <div
                             key={idx}
                             className="w-5.5 h-5.5 rounded-md flex items-center justify-center text-[9px] font-bold border border-[#141417] shadow-sm relative group/app"
                             style={{ backgroundColor: app.color }}
@@ -266,13 +265,13 @@ export default function TimelineShowcase() {
                         <Sliders className="w-3 h-3 text-secondary" />
                         Session History
                       </div>
-                      
+
                       <div className="flex flex-col relative pl-3.5">
                         {/* Vertical line connecting nodes */}
                         <div className="absolute left-1.5 top-2.5 bottom-2.5 w-0.5 bg-white/10" />
 
                         {wf.sessions.map((session, sIdx) => (
-                          <div 
+                          <div
                             key={sIdx}
                             className="flex items-start justify-between gap-4 py-2.5 relative group/session"
                           >
