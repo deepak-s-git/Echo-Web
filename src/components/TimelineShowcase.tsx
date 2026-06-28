@@ -35,6 +35,20 @@ export default function TimelineShowcase() {
   const [expandedId, setExpandedId] = useState<string | null>("nextjs-landing");
 
   useEffect(() => {
+    // Animate Header
+    gsap.from(".reveal-timeline-header", {
+      opacity: 0,
+      y: 30,
+      letterSpacing: "-0.04em",
+      duration: 1.2,
+      ease: "power4.out",
+      scrollTrigger: {
+        trigger: "#timeline",
+        start: "top 85%",
+      }
+    });
+
+    // Animate Showcase Mockup
     gsap.from(".reveal-showcase", {
       opacity: 0,
       y: 60,
@@ -44,6 +58,26 @@ export default function TimelineShowcase() {
         trigger: "#timeline",
         start: "top 75%",
       }
+    });
+
+    // Animate individual workflow cards inside mockup on scroll reveal
+    const workflowCards = gsap.utils.toArray(".reveal-showcase .skew-elem");
+    workflowCards.forEach((card: any) => {
+      gsap.fromTo(card,
+        { opacity: 0, y: 30, scale: 0.98 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 95%",
+            toggleActions: "play none none none"
+          }
+        }
+      );
     });
   }, []);
 
@@ -109,7 +143,7 @@ export default function TimelineShowcase() {
         <span className="text-xs uppercase tracking-widest text-secondary font-bold mb-3 inline-block">
           Interactive Timeline
         </span>
-        <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-foreground">
+        <h2 className="reveal-timeline-header text-3xl sm:text-5xl font-black tracking-tight text-foreground">
           Your full history, <span className="text-primary">beautifully organized</span>
         </h2>
       </div>
@@ -198,7 +232,7 @@ export default function TimelineShowcase() {
                 <div
                   key={wf.id}
                   onClick={() => setExpandedId(isExpanded ? null : wf.id)}
-                  className={`border transition-all duration-300 rounded-xl overflow-hidden cursor-pointer select-none ${isExpanded
+                  className={`border transition-all duration-300 rounded-xl overflow-hidden cursor-pointer select-none skew-elem ${isExpanded
                     ? "bg-white/4 border-white/12 shadow-md"
                     : "bg-white/2 hover:bg-white/4 border-border-custom hover:border-white/8"
                     }`}
