@@ -14,21 +14,57 @@ export default function HowItWorks() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Animate Header
+    gsap.from(".reveal-how-it-works-header", {
+      opacity: 0,
+      y: 30,
+      letterSpacing: "-0.04em",
+      duration: 1.2,
+      ease: "power4.out",
+      scrollTrigger: {
+        trigger: "#how-it-works",
+        start: "top 85%",
+      }
+    });
+
     // Create scroll triggers for step highlight and visualizer swap
     const items = gsap.utils.toArray(".stepper-item-scroll");
     
     const triggers = items.map((item: any, index: number) => {
       return ScrollTrigger.create({
         trigger: item,
-        start: "top 45%",
+        start: "top 55%",
         end: "bottom 45%",
         onEnter: () => setActiveStep(index),
         onEnterBack: () => setActiveStep(index)
       });
     });
 
+    // Flowing down card parallax animation
+    const stickyCard = containerRef.current?.querySelector(".sticky");
+    let cardFlow: gsap.core.Tween | null = null;
+    if (stickyCard) {
+      cardFlow = gsap.fromTo(stickyCard,
+        { y: -30 },
+        {
+          y: 50,
+          ease: "power1.inOut",
+          scrollTrigger: {
+            trigger: "#how-it-works",
+            start: "top center",
+            end: "bottom center",
+            scrub: 1.5, // lag-scrub for smooth organic delay
+          }
+        }
+      );
+    }
+
     return () => {
       triggers.forEach(t => t.kill());
+      if (cardFlow) {
+        cardFlow.scrollTrigger?.kill();
+        cardFlow.kill();
+      }
     };
   }, []);
 
@@ -71,7 +107,7 @@ export default function HowItWorks() {
         <span className="text-xs uppercase tracking-widest text-secondary font-bold mb-3 inline-block">
           How It Works
         </span>
-        <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-foreground">
+        <h2 className="reveal-how-it-works-header text-3xl sm:text-5xl font-black tracking-tight text-foreground">
           Three steps to never losing <span className="text-primary">context again</span>
         </h2>
       </div>
@@ -124,7 +160,7 @@ export default function HowItWorks() {
 
         {/* Right: Sticky visualizer panel */}
         <div className="hidden lg:block h-full">
-          <div className="sticky top-40 w-full h-[400px] bg-surface/90 border border-border-custom rounded-2xl shadow-2xl overflow-hidden flex items-center justify-center">
+          <div className="sticky top-40 w-full h-[400px] skew-elem bg-surface/90 border border-border-custom rounded-2xl shadow-2xl overflow-hidden flex items-center justify-center">
             {/* Step 1 Visual */}
             <div className={`visualizer-step absolute inset-0 flex items-center justify-center p-8 transition-all duration-500 ${
               activeStep === 0 ? "active opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-4 scale-95 pointer-events-none"
