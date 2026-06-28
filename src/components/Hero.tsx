@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Monitor, Code, Clock, LayoutGrid, ShieldCheck, Home, Sliders, Search, Sparkles, FolderPlus, Globe, Sidebar } from "lucide-react";
+import { Monitor, Code, Clock, LayoutGrid, ShieldCheck, Home, Sliders, Search, Sparkles, FolderPlus, Globe, Sidebar, Layers } from "lucide-react";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -16,7 +16,7 @@ export default function Hero() {
   useEffect(() => {
     // 1. Entrance timeline
     const heroTl = gsap.timeline();
-    
+
     heroTl.to(".split-text", {
       y: "0%",
       duration: 1.2,
@@ -24,13 +24,24 @@ export default function Hero() {
       ease: "power4.out",
       delay: 0.2
     })
-    .to(".hero-fade", {
-      opacity: 1,
-      y: 0,
-      duration: 0.8,
-      stagger: 0.12,
-      ease: "power3.out"
-    }, "-=0.6");
+      .to(".hero-fade", {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.12,
+        ease: "power3.out"
+      }, "-=0.6")
+      .fromTo(".reveal-row",
+        { opacity: 0, x: -30 },
+        {
+          opacity: 1,
+          x: 0,
+          duration: 0.8,
+          stagger: 0.1,
+          ease: "power3.out"
+        },
+        "-=0.2"
+      );
 
     // 2. ScrollTrigger 3D tilt
     if (mockupRef.current && containerRef.current) {
@@ -70,15 +81,11 @@ export default function Hero() {
   };
 
   return (
-    <section 
+    <section
       ref={containerRef}
       className="min-h-screen flex flex-col items-center justify-center pt-36 pb-20 px-6 relative overflow-hidden"
     >
 
-
-      {/* Background Glow Blobs */}
-      <div className="ambient-glob glob-1"></div>
-      <div className="ambient-glob glob-2"></div>
 
       {/* Social Proof Badge */}
       <div className="hero-fade opacity-0 translate-y-4 mb-6">
@@ -229,63 +236,59 @@ export default function Hero() {
 
 
 
-              {/* Recent Workflows Section */}
+              {/* Recent Sessions Section */}
               <div className="mb-6">
-                <span className="text-[9px] font-bold tracking-wider text-text-secondary uppercase block mb-2.5">Recent Workflows</span>
+                <span className="text-[9px] font-bold tracking-wider text-text-secondary uppercase block mb-2.5">Recent Sessions</span>
                 <div className="flex flex-col gap-2">
-                  {/* Row 1 */}
-                  <div className="bg-white/2 hover:bg-white/4 border border-border-custom rounded-xl px-4 py-2.5 flex items-center justify-between cursor-pointer transition-colors duration-300">
+                  {/* Row 1: Typography Scale Setup */}
+                  <div className="reveal-row bg-white/2 hover:bg-white/4 border border-border-custom rounded-xl px-4 py-2.5 flex items-center justify-between cursor-pointer transition-colors duration-300">
                     <div className="flex items-center gap-3">
                       <div className="w-7 h-7 rounded-full bg-[#F0A624]/10 border border-[#F0A624]/20 flex items-center justify-center text-secondary">
                         <LayoutGrid className="w-3.5 h-3.5" />
                       </div>
                       <div>
-                        <div className="text-xs font-semibold text-foreground">Design System Redesign</div>
-                        <div className="text-[9px] text-text-secondary mt-0.5">Jun 17, 2026 at 11:20 • 2h 45m</div>
+                        <div className="text-xs font-semibold text-foreground">Typography Scale Setup</div>
+                        <div className="text-[9px] text-text-secondary mt-0.5">Jun 17, 2026 at 08:30 • 45m</div>
                       </div>
                     </div>
                     <div className="flex -space-x-1.5 overflow-hidden">
                       <div className="w-5 h-5 rounded-md bg-[#F24E1E] border border-[#141417] flex items-center justify-center text-[9px] text-white font-bold select-none shadow-sm">F</div>
-                      <div className="w-5 h-5 rounded-md bg-[#157EFB] border border-[#141417] flex items-center justify-center text-[9px] text-white font-bold select-none shadow-sm">X</div>
-                      <div className="w-5 h-5 rounded-md bg-[#4A154B] border border-[#141417] flex items-center justify-center text-[9px] text-white font-bold select-none shadow-sm">S</div>
-                      <div className="w-5 h-5 rounded-md bg-white/5 border border-white/10 flex items-center justify-center text-[9px] text-white font-bold select-none shadow-sm">C</div>
+                      <div className="w-5 h-5 rounded-md bg-[#007ACC] border border-[#141417] flex items-center justify-center text-[9px] text-white font-bold select-none shadow-sm">C</div>
                     </div>
                   </div>
 
-                  {/* Row 2 */}
-                  <div className="bg-white/2 hover:bg-white/4 border border-border-custom rounded-xl px-4 py-2.5 flex items-center justify-between cursor-pointer transition-colors duration-300">
+                  {/* Row 2: Asset Compilation */}
+                  <div className="reveal-row bg-white/2 hover:bg-white/4 border border-border-custom rounded-xl px-4 py-2.5 flex items-center justify-between cursor-pointer transition-colors duration-300">
                     <div className="flex items-center gap-3">
                       <div className="w-7 h-7 rounded-full bg-[#10b981]/15 border border-[#10b981]/25 flex items-center justify-center text-[#10b981]">
                         <Globe className="w-3.5 h-3.5" />
                       </div>
                       <div>
-                        <div className="text-xs font-semibold text-foreground">Next.js Landing Page</div>
-                        <div className="text-[9px] text-text-secondary mt-0.5">Jun 17, 2026 at 09:15 • 1h 12m</div>
+                        <div className="text-xs font-semibold text-foreground">Asset Compilation</div>
+                        <div className="text-[9px] text-text-secondary mt-0.5">Jun 17, 2026 at 09:50 • 5m</div>
                       </div>
                     </div>
                     <div className="flex -space-x-1.5 overflow-hidden">
-                      <div className="w-5 h-5 rounded-md bg-[#007ACC] border border-[#141417] flex items-center justify-center text-[9px] text-white font-bold select-none shadow-sm">C</div>
-                      <div className="w-5 h-5 rounded-md bg-black border border-[#141417] flex items-center justify-center text-[9px] text-white font-bold select-none shadow-sm">&gt;_</div>
-                      <div className="w-5 h-5 rounded-md bg-white/5 border border-white/10 flex items-center justify-center text-[9px] text-white font-bold select-none shadow-sm">C</div>
-                      <div className="w-5 h-5 rounded-md bg-[#4A154B] border border-[#141417] flex items-center justify-center text-[9px] text-white font-bold select-none shadow-sm">S</div>
+                      <div className="w-5 h-5 rounded-md bg-[#EA4335] border border-[#141417] flex items-center justify-center text-[9px] text-white font-bold select-none shadow-sm">C</div>
                     </div>
                   </div>
 
-                  {/* Row 3 */}
-                  <div className="bg-white/2 hover:bg-white/4 border border-border-custom rounded-xl px-4 py-2.5 flex items-center justify-between cursor-pointer transition-colors duration-300">
+                  {/* Row 3: Color Palette Refinement */}
+                  <div className="reveal-row bg-white/2 hover:bg-white/4 border border-border-custom rounded-xl px-4 py-2.5 flex items-center justify-between cursor-pointer transition-colors duration-300">
                     <div className="flex items-center gap-3">
                       <div className="w-7 h-7 rounded-full bg-[#8b5cf6]/10 border border-[#8b5cf6]/20 flex items-center justify-center text-[#a78bfa]">
-                        <Code className="w-3.5 h-3.5" />
+                        <Layers className="w-3.5 h-3.5" />
                       </div>
                       <div>
-                        <div className="text-xs font-semibold text-foreground">Rust Auth API</div>
-                        <div className="text-[9px] text-text-secondary mt-0.5">Jun 16, 2026 at 18:30 • 45m</div>
+                        <div className="text-xs font-semibold text-foreground">Color Palette Refinement</div>
+                        <div className="text-[9px] text-text-secondary mt-0.5">Jun 17, 2026 at 10:00 • 1h 20m</div>
                       </div>
                     </div>
                     <div className="flex -space-x-1.5 overflow-hidden">
-                      <div className="w-5 h-5 rounded-md bg-[#007ACC] border border-[#141417] flex items-center justify-center text-[9px] text-white font-bold select-none shadow-sm">V</div>
-                      <div className="w-5 h-5 rounded-md bg-black border border-[#141417] flex items-center justify-center text-[9px] text-white font-bold select-none shadow-sm">&gt;_</div>
-                      <div className="w-5 h-5 rounded-md bg-[#FF6C37] border border-[#141417] flex items-center justify-center text-[9px] text-white font-bold select-none shadow-sm">P</div>
+                      <div className="w-5 h-5 rounded-md bg-[#F24E1E] border border-[#141417] flex items-center justify-center text-[9px] text-white font-bold select-none shadow-sm">F</div>
+                      <div className="w-5 h-5 rounded-md bg-[#007ACC] border border-[#141417] flex items-center justify-center text-[9px] text-white font-bold select-none shadow-sm">C</div>
+                      <div className="w-5 h-5 rounded-md bg-[#4A154B] border border-[#141417] flex items-center justify-center text-[9px] text-white font-bold select-none shadow-sm">S</div>
+                      <div className="w-5 h-5 rounded-md bg-[#157EFB] border border-[#141417] flex items-center justify-center text-[9px] text-white font-bold select-none shadow-sm">S</div>
                     </div>
                   </div>
                 </div>
