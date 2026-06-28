@@ -12,17 +12,37 @@ if (typeof window !== "undefined") {
 
 export default function Features() {
   useEffect(() => {
-    gsap.from(".reveal-feature", {
+    // Animate Header
+    gsap.from(".reveal-feature-header", {
       opacity: 0,
-      y: 40,
-      scale: 0.98,
-      duration: 1,
-      stagger: 0.1,
-      ease: "power3.out",
+      y: 30,
+      letterSpacing: "-0.04em",
+      duration: 1.2,
+      ease: "power4.out",
       scrollTrigger: {
         trigger: "#features",
-        start: "top 70%",
+        start: "top 85%",
       }
+    });
+
+    // Animate Bento Cards individually on scroll reveal
+    const cards = gsap.utils.toArray(".reveal-feature");
+    cards.forEach((card: any) => {
+      gsap.fromTo(card,
+        { opacity: 0, y: 50, scale: 0.96 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 1.2,
+          ease: "power4.out",
+          scrollTrigger: {
+            trigger: card,
+            start: "top 92%",
+            toggleActions: "play none none none"
+          }
+        }
+      );
     });
   }, []);
 
@@ -33,7 +53,7 @@ export default function Features() {
         <span className="text-xs uppercase tracking-widest text-secondary font-bold mb-3 inline-block">
           Product Capabilities
         </span>
-        <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-foreground">
+        <h2 className="reveal-feature-header text-3xl sm:text-5xl font-black tracking-tight text-foreground">
           Everything your brain forgets, <span className="text-primary">Echo remembers</span>
         </h2>
       </div>
@@ -41,7 +61,7 @@ export default function Features() {
       {/* Bento Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {/* Card 1 - Session Memory */}
-        <GlowCard className="reveal-feature p-8 min-h-[280px] md:col-span-2 flex flex-col justify-between">
+        <GlowCard className="reveal-feature skew-elem p-8 min-h-[280px] md:col-span-2 flex flex-col justify-between">
           <div className="w-12 h-12 rounded-xl bg-primary/8 border border-primary/20 flex items-center justify-center text-primary mb-6">
             <BrainCircuit className="w-6 h-6" />
           </div>
@@ -54,7 +74,7 @@ export default function Features() {
         </GlowCard>
 
         {/* Card 2 - One-click Restore */}
-        <GlowCard className="reveal-feature p-8 min-h-[280px] flex flex-col justify-between">
+        <GlowCard className="reveal-feature skew-elem p-8 min-h-[280px] flex flex-col justify-between">
           <div className="w-12 h-12 rounded-xl bg-secondary/8 border border-secondary/20 flex items-center justify-center text-secondary mb-6">
             <RotateCcw className="w-6 h-6" />
           </div>
@@ -67,7 +87,7 @@ export default function Features() {
         </GlowCard>
 
         {/* Card 3 - Browser-aware */}
-        <GlowCard className="reveal-feature p-8 min-h-[280px] flex flex-col justify-between">
+        <GlowCard className="reveal-feature skew-elem p-8 min-h-[280px] flex flex-col justify-between">
           <div className="w-12 h-12 rounded-xl bg-primary/8 border border-primary/20 flex items-center justify-center text-primary mb-6">
             <Compass className="w-6 h-6" />
           </div>
@@ -80,7 +100,7 @@ export default function Features() {
         </GlowCard>
 
         {/* Card 4 - Focus Score */}
-        <GlowCard className="reveal-feature p-8 min-h-[280px] flex flex-col justify-between">
+        <GlowCard className="reveal-feature skew-elem p-8 min-h-[280px] flex flex-col justify-between">
           <div className="w-12 h-12 rounded-xl bg-secondary/8 border border-secondary/20 flex items-center justify-center text-secondary mb-6">
             <LineChart className="w-6 h-6" />
           </div>
@@ -93,7 +113,7 @@ export default function Features() {
         </GlowCard>
 
         {/* Card 5 - Timeline View */}
-        <GlowCard className="reveal-feature p-8 min-h-[280px] flex flex-col justify-between">
+        <GlowCard className="reveal-feature skew-elem p-8 min-h-[280px] flex flex-col justify-between">
           <div className="w-12 h-12 rounded-xl bg-primary/8 border border-primary/20 flex items-center justify-center text-primary mb-6">
             <Layers className="w-6 h-6" />
           </div>
@@ -107,7 +127,7 @@ export default function Features() {
 
         {/* Card 6 - Privacy First */}
         <GlowCard 
-          className="reveal-feature p-8 min-h-[280px] lg:col-span-3"
+          className="reveal-feature skew-elem p-8 min-h-[280px] lg:col-span-3"
           contentClassName="justify-center items-center text-center gap-4"
         >
           <div className="w-12 h-12 rounded-xl bg-foreground/5 border border-border-custom flex items-center justify-center text-foreground">
