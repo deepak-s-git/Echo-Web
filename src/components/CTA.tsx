@@ -11,21 +11,25 @@ if (typeof window !== "undefined") {
 
 export default function CTA() {
   useEffect(() => {
-    gsap.from(".reveal-cta", {
-      opacity: 0,
-      y: 40,
-      duration: 1.1,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: "#cta",
-        start: "top 80%",
+    gsap.fromTo(".reveal-cta",
+      { opacity: 0, scale: 0.95, y: 45 },
+      {
+        opacity: 1,
+        scale: 1,
+        y: 0,
+        duration: 1.2,
+        ease: "power4.out",
+        scrollTrigger: {
+          trigger: "#cta",
+          start: "top 85%",
+        }
       }
-    });
+    );
   }, []);
 
   return (
     <section id="cta" className="py-40 px-6 max-w-5xl mx-auto relative z-10">
-      <div className="reveal-cta glass-card p-10 md:p-20 text-center flex flex-col items-center border border-primary/20 shadow-[0_24px_70px_rgba(217,107,45,0.05)] rounded-2xl relative overflow-hidden">
+      <div className="reveal-cta skew-elem glass-card p-10 md:p-20 text-center flex flex-col items-center border border-primary/20 shadow-[0_24px_70px_rgba(217,107,45,0.05)] rounded-2xl relative overflow-hidden">
         {/* Glow inner layer */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none" />
         
