@@ -16,14 +16,41 @@ export default function MenuBarSection() {
   const [justRestored, setJustRestored] = useState<number | null>(null);
 
   useEffect(() => {
-    gsap.from(".reveal-menubar", {
+    // Animate Header
+    gsap.from(".reveal-menubar-header", {
       opacity: 0,
-      y: 45,
-      duration: 1.1,
-      ease: "power3.out",
+      y: 30,
+      letterSpacing: "-0.04em",
+      duration: 1.2,
+      ease: "power4.out",
       scrollTrigger: {
         trigger: "#menubar",
-        start: "top 75%",
+        start: "top 85%",
+      }
+    });
+
+    // Animate Left Column (Text)
+    gsap.from(".reveal-menubar-left", {
+      opacity: 0,
+      x: -50,
+      duration: 1.2,
+      ease: "power4.out",
+      scrollTrigger: {
+        trigger: "#menubar",
+        start: "top 78%",
+      }
+    });
+
+    // Animate Right Column (Mockup)
+    gsap.from(".reveal-menubar-right", {
+      opacity: 0,
+      x: 50,
+      scale: 0.96,
+      duration: 1.3,
+      ease: "power4.out",
+      scrollTrigger: {
+        trigger: "#menubar",
+        start: "top 78%",
       }
     });
   }, []);
@@ -50,11 +77,11 @@ export default function MenuBarSection() {
     <section id="menubar" className="py-32 px-6 max-w-5xl mx-auto relative z-10">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* Left column: Text */}
-        <div className="reveal-menubar text-left select-none">
+        <div className="reveal-menubar-left text-left select-none">
           <span className="text-xs uppercase tracking-widest text-secondary font-bold mb-3 inline-block">
             Menu Bar Companion
           </span>
-          <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-foreground mb-6">
+          <h2 className="reveal-menubar-header text-3xl sm:text-5xl font-black tracking-tight text-foreground mb-6">
             Always there, <span className="text-primary">never in the way</span>
           </h2>
           <p className="text-sm md:text-base text-text-secondary leading-relaxed mb-6">
@@ -63,8 +90,8 @@ export default function MenuBarSection() {
         </div>
 
         {/* Right column: Interactive macOS Menu Bar Mockup */}
-        <div className="reveal-menubar w-full max-w-md mx-auto relative">
-          <div className="w-full bg-[#0d0d0e]/60 border border-border-custom shadow-2xl rounded-2xl overflow-hidden flex flex-col relative">
+        <div className="reveal-menubar-right w-full max-w-md mx-auto relative">
+          <div className="w-full skew-elem bg-[#0d0d0e]/60 border border-border-custom shadow-2xl rounded-2xl overflow-hidden flex flex-col relative">
 
             {/* macOS Top Menu Bar with Wifi, Battery, Echo Icon, and Date/Time */}
             <div className="h-8 bg-white/4 border-b border-white/5 flex items-center justify-end px-4 gap-3.5 select-none text-foreground/70">
