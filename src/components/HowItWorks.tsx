@@ -112,7 +112,7 @@ export default function HowItWorks() {
         </h2>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 relative">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 relative">
         {/* Left: Scrollable steps */}
         <div className="flex flex-col gap-40 py-20">
           <div className="stepper-item-scroll flex flex-col gap-4 text-left" data-step="0">
@@ -159,7 +159,7 @@ export default function HowItWorks() {
         </div>
 
         {/* Right: Sticky visualizer panel */}
-        <div className="hidden lg:block h-full">
+        <div className="hidden md:block h-full">
           <div className="sticky top-40 w-full h-[400px] skew-elem bg-surface/90 border border-border-custom rounded-2xl shadow-2xl overflow-hidden flex items-center justify-center">
             {/* Step 1 Visual */}
             <div className={`visualizer-step absolute inset-0 flex items-center justify-center p-8 transition-all duration-500 ${
