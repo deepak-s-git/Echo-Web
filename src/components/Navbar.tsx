@@ -13,6 +13,14 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [aboutModalOpen, setAboutModalOpen] = useState(false);
   const [qrModalOpen, setQrModalOpen] = useState(false);
+  const [supportTab, setSupportTab] = useState<"upi" | "paypal">("upi");
+  const [copiedText, setCopiedText] = useState(false);
+
+  const handleCopy = (text: string) => {
+    navigator.clipboard.writeText(text);
+    setCopiedText(true);
+    setTimeout(() => setCopiedText(false), 2000);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,11 +45,10 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between px-6 py-3 w-[calc(100%-48px)] max-w-5xl rounded-full transition-all duration-300 ${
-          scrolled
-            ? "bg-background/80 backdrop-blur-md border border-border-custom shadow-2xl"
-            : "bg-surface/30 backdrop-blur-sm border border-transparent"
-        }`}
+        className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between px-6 py-3 w-[calc(100%-48px)] max-w-5xl rounded-full transition-all duration-300 ${scrolled
+          ? "bg-background/80 backdrop-blur-md border border-border-custom shadow-2xl"
+          : "bg-surface/30 backdrop-blur-sm border border-transparent"
+          }`}
       >
         {/* Logo */}
         <div className="flex items-center gap-2 cursor-pointer group" onClick={() => handleScrollTo("body")}>
@@ -62,7 +69,7 @@ export default function Navbar() {
               <button
                 key={item}
                 onClick={() => handleScrollTo(target)}
-                className="text-sm font-medium text-text-secondary hover:text-foreground transition-colors cursor-pointer"
+                className="text-sm font-medium text-text-secondary hover:text-secondary transition-colors cursor-pointer"
               >
                 {item}
               </button>
@@ -93,9 +100,8 @@ export default function Navbar() {
 
       {/* Mobile Drawer */}
       <div
-        className={`fixed inset-0 z-40 bg-background/95 backdrop-blur-lg flex flex-col justify-center items-center gap-8 transition-transform duration-500 ${
-          mobileMenuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`fixed inset-0 z-40 bg-background/95 backdrop-blur-lg flex flex-col justify-center items-center gap-8 transition-transform duration-500 ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
       >
         {["Features", "How It Works", "Timeline", "Integrations"].map((item) => {
           const target = `#${item.toLowerCase().replace(/\s+/g, "-")}`;
@@ -103,7 +109,7 @@ export default function Navbar() {
             <button
               key={item}
               onClick={() => handleScrollTo(target)}
-              className="text-xl font-medium text-text-secondary hover:text-foreground transition-colors"
+              className="text-xl font-medium text-text-secondary hover:text-secondary transition-colors"
             >
               {item}
             </button>
@@ -148,7 +154,7 @@ export default function Navbar() {
                 S
               </div>
               <div>
-                <h3 className="text-lg font-bold text-foreground">S</h3>
+                <h3 className="text-lg font-bold text-foreground">Deepak.S</h3>
                 <p className="text-xs text-secondary font-medium">Student & Indie Developer</p>
               </div>
             </div>
@@ -156,13 +162,13 @@ export default function Navbar() {
             {/* Description */}
             <div className="space-y-4 text-sm text-text-secondary leading-relaxed mb-8">
               <p>
-                Hey there! I'm <strong className="text-foreground">S</strong>. I'm a student and a passionate developer who loves crafting minimalist, utility-first software.
+                Hey there! I'm <strong className="text-foreground">Deepak.S</strong>. I'm a student and a passionate developer who loves crafting minimalist, utility-first software.
               </p>
               <p>
                 Juggling classes, coursework, and programming is a fun challenge. I enjoy dedicating my free time to building tools that solve real productivity problems and simplify developers' daily tasks.
               </p>
               <p>
-                If my projects have saved you time or made your work week smoother, consider supporting my journey as a student developer. Tips or coffee sponsorships go a long way!
+                If my projects have saved you time or made your work week smoother, consider sponsoring my work. Any contribution directly supports my education and future software development!
               </p>
             </div>
 
@@ -175,7 +181,7 @@ export default function Navbar() {
                 }}
                 className="w-full bg-primary hover:bg-secondary text-foreground text-sm font-bold py-3.5 rounded-2xl transition-colors cursor-pointer text-center flex items-center justify-center gap-2 shadow-[0_4px_12px_rgba(217,107,45,0.3)]"
               >
-                ☕ Buy Me a Coffee
+                💖 Sponsor My Work
               </button>
               <button
                 onClick={() => setAboutModalOpen(false)}
@@ -188,7 +194,7 @@ export default function Navbar() {
         </div>
       )}
 
-      {/* QR Code / Payment Modal */}
+      {/* Support / Payment Modal */}
       {qrModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           {/* Backdrop */}
@@ -207,51 +213,108 @@ export default function Navbar() {
               ✕
             </button>
 
-            <h3 className="text-lg font-bold text-foreground mb-1">Support My Work</h3>
-            <p className="text-xs text-text-secondary mb-6">Scan with your phone to buy me a coffee via PayPal</p>
+            <h3 className="text-lg font-bold text-foreground mb-4">Support My Work</h3>
 
-            {/* Beautiful Custom SVG QR Code */}
-            <div className="w-56 h-56 mx-auto bg-white rounded-2xl p-4 flex items-center justify-center shadow-lg relative group">
-              <svg className="w-full h-full text-black" viewBox="0 0 100 100" fill="currentColor">
-                {/* QR Code Grid Pattern */}
-                <path d="M0 0h25v25H0zm5 5v15h15V5zm4 4h7v7H9z" />
-                <path d="M75 0h25v25H75zm5 5v15h15V5zm4 4h7v7H9z" />
-                <path d="M0 75h25v25H0zm5 5v15h15V80zm4 4h7v7H9z" />
-                <path d="M35 5h5v5h-5zm10 0h10v5H45zm15 5h5v15h-5zm0-5h5v5h-5zm-20 10h5v10h-5zm10 5h5v5h-5zm-5 5h5v5h-5zm15 15h15v5H80zm5 5h10v5H85zm5 5h5v5h-5zm-45-15h5v5h-5zm10 0h10v5H50zm15 5h5v5h-5zm-25 10h10v5H40zm15 5h5v5h-5zm-20 10h5v10h-5zm10 5h5v5h-5zm-5 5h5v5h-5zm15 5h15v5H80zm5 5h10v5H85zm5 5h5v5h-5z" />
-                <path d="M5 30h5v10H5zm15 5h5v5h-5zm10-5h5v5h-5zm15 0h5v5h-5zm10 0h10v5H55zm15 5h5v15h-5zm0-5h5v5h-5zm-20 10h5v10h-5zm10 5h5v5h-5zm-5 5h5v5h-5z" />
-                <path d="M30 65h5v10h-5zm15 0h10v5H45zm15 5h5v15h-5zm0-5h5v5h-5zm-20 10h5v10h-5zm10 5h5v5h-5zm-5 5h5v5h-5zm15 15h15v5H80zm5 5h10v5H85zm5 5h5v5h-5z" />
-                {/* Center logo cutout */}
-                <rect x="36" y="36" width="28" height="28" rx="8" fill="white" />
-                {/* Stylized P logo representation in PayPal blue */}
-                <path d="M44 42h6a3.5 3.5 0 0 1 3.5 3.5c0 1.8-1 3.2-2.8 3.4l-1 .2H47v5h-3zm3 2.5v2h1.8c.8 0 1.2-.6 1.2-1s-.4-1-1.2-1z" fill="#003087" />
-                <path d="M46 44h6a3.5 3.5 0 0 1 3.5 3.5c0 1.8-1 3.2-2.8 3.4l-1 .2h-3v5h-3zm3 2.5v2h1.8c.8 0 1.2-.6 1.2-1s-.4-1-1.2-1z" fill="#0079C1" className="translate-x-0.5 translate-y-0.5 mix-blend-multiply opacity-90" />
-              </svg>
+            {/* Tab Selector */}
+            <div className="flex bg-black/40 border border-white/5 p-1 rounded-xl mb-6">
+              <button
+                onClick={() => setSupportTab("upi")}
+                className={`flex-1 text-xs font-semibold py-2 rounded-lg transition-all duration-300 cursor-pointer ${supportTab === "upi" ? "bg-primary text-foreground shadow-sm" : "text-text-secondary hover:text-foreground"
+                  }`}
+              >
+                UPI (India)
+              </button>
+              <button
+                onClick={() => setSupportTab("paypal")}
+                className={`flex-1 text-xs font-semibold py-2 rounded-lg transition-all duration-300 cursor-pointer ${supportTab === "paypal" ? "bg-[#003087] text-white shadow-sm" : "text-text-secondary hover:text-foreground"
+                  }`}
+              >
+                PayPal (Intl)
+              </button>
             </div>
 
-            <p className="text-xs text-text-secondary mt-6 select-all font-mono bg-black/40 border border-white/5 rounded-xl py-2.5 px-4 break-all select-all">
-              paypal.me/s_indie_dev
-            </p>
+            {/* Tab 1: UPI India */}
+            {supportTab === "upi" && (
+              <div className="animate-fade-in flex flex-col items-center">
+                <p className="text-xs text-text-secondary mb-6">Scan with GPay, PhonePe, or Paytm to support me</p>
 
+                {/* Real UPI QR Code Image */}
+                <div className="w-52 h-[260px] bg-white rounded-2xl p-2 flex flex-col items-center justify-between shadow-lg mb-6 relative group overflow-hidden">
+                  <img
+                    src="/upi_qr.jpg"
+                    alt="UPI QR Code"
+                    className="w-full h-full object-contain rounded-xl select-none"
+                  />
+                </div>
+
+                <p className="w-full text-xs text-foreground font-mono bg-black/40 border border-white/5 rounded-xl py-2.5 px-4 break-all select-all">
+                  deepaks898@slc
+                </p>
+              </div>
+            )}
+
+            {/* Tab 2: PayPal Intl */}
+            {supportTab === "paypal" && (
+              <div className="animate-fade-in flex flex-col items-center">
+                <p className="text-xs text-text-secondary mb-6">Scan to support me internationally via PayPal</p>
+
+                {/* Real PayPal QR Code Image */}
+                <div className="w-52 h-[260px] bg-white rounded-2xl p-2 flex flex-col items-center justify-between shadow-lg mb-6 relative group overflow-hidden">
+                  <img
+                    src="/paypal_qr.jpg"
+                    alt="PayPal QR Code"
+                    className="w-full h-full object-contain rounded-xl select-none"
+                  />
+                </div>
+
+                <p className="w-full text-xs text-foreground font-mono bg-black/40 border border-white/5 rounded-xl py-2.5 px-4 break-all select-all">
+                  paypal.me/DEEPAKS898
+                </p>
+              </div>
+            )}
+
+            {/* Bottom buttons */}
             <div className="flex gap-3 mt-6">
               <button
-                onClick={() => {
-                  navigator.clipboard.writeText("paypal.me/s_indie_dev");
-                  alert("PayPal link copied to clipboard!");
-                }}
-                className="flex-1 bg-white/5 hover:bg-white/10 border border-white/5 text-foreground text-xs font-semibold py-3.5 rounded-2xl transition-colors cursor-pointer"
+                onClick={() => handleCopy(supportTab === "upi" ? "deepaks898@slc" : "https://paypal.me/DEEPAKS898")}
+                className="flex-1 bg-white/5 hover:bg-white/10 border border-white/5 text-foreground text-xs font-semibold py-3.5 rounded-2xl transition-colors cursor-pointer text-center"
               >
-                Copy Link
+                {copiedText ? "Copied! ✓" : supportTab === "upi" ? "Copy UPI ID" : "Copy Link"}
               </button>
+
+              {supportTab === "paypal" ? (
+                <a
+                  href="https://paypal.me/DEEPAKS898"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 bg-[#003087] hover:bg-[#00246b] text-white text-xs font-bold py-3.5 rounded-2xl transition-colors text-center flex items-center justify-center cursor-pointer shadow-[0_4px_12px_rgba(0,48,135,0.25)]"
+                >
+                  Open PayPal
+                </a>
+              ) : (
+                <button
+                  onClick={() => {
+                    setQrModalOpen(false);
+                    setAboutModalOpen(true);
+                  }}
+                  className="flex-1 bg-primary hover:bg-secondary text-foreground text-xs font-bold py-3.5 rounded-2xl transition-colors cursor-pointer"
+                >
+                  Back
+                </button>
+              )}
+            </div>
+
+            {supportTab === "paypal" && (
               <button
                 onClick={() => {
                   setQrModalOpen(false);
                   setAboutModalOpen(true);
                 }}
-                className="flex-1 bg-primary hover:bg-secondary text-foreground text-xs font-bold py-3.5 rounded-2xl transition-colors cursor-pointer"
+                className="text-xs text-text-secondary hover:text-foreground transition-colors mt-4 block mx-auto underline cursor-pointer"
               >
-                Back
+                Back to Bio
               </button>
-            </div>
+            )}
           </div>
         </div>
       )}
