@@ -11,6 +11,14 @@ if (typeof window !== "undefined") {
 
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {
   useEffect(() => {
+    // Disable smooth scroll and skew triggers on mobile devices (including desktop mode on touch devices)
+    const isMobile = typeof window !== "undefined" && (
+      window.innerWidth < 768 ||
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+      (navigator.maxTouchPoints > 0 && /Macintosh/i.test(navigator.userAgent))
+    );
+    if (isMobile) return;
+
     // 1. Initialize Lenis with custom smooth/slow scroll params
     const lenis = new Lenis({
       duration: 1.8,         // Slower, more cinematic scroll transition duration
