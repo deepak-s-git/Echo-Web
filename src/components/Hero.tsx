@@ -222,7 +222,7 @@ export default function Hero() {
 
                   {/* Record in Existing */}
                   <div className="bg-white/5 hover:bg-white/8 border border-border-custom hover:border-white/10 rounded-xl p-3.5 flex flex-col gap-2.5 cursor-pointer transition-all duration-300 group">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#F0A624]/20 to-[#D96B2D]/20 border border-[#F0A624]/20 flex items-center justify-center text-secondary group-hover:scale-105 transition-transform">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-primary/20 to-secondary/20 border border-primary/20 flex items-center justify-center text-secondary group-hover:scale-105 transition-transform">
                       <FolderPlus className="w-4 h-4 text-secondary" />
                     </div>
                     <div>
