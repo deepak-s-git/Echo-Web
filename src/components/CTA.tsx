@@ -41,7 +41,10 @@ export default function CTA() {
           Echo is free to download. No accounts, no subscriptions, no cloud syncing. All your data stays offline inside your Mac.
         </p>
 
-        <button className="bg-primary hover:bg-secondary text-foreground text-base font-bold px-10 py-5 rounded-full transition-all duration-300 flex items-center gap-2.5 shadow-[0_8px_30px_rgba(217,107,45,0.4)] hover:scale-102 cursor-pointer z-10">
+        <button
+          onClick={() => window.dispatchEvent(new CustomEvent("open-download-modal"))}
+          className="bg-primary hover:bg-secondary text-foreground text-base font-bold px-10 py-5 rounded-full transition-all duration-300 flex items-center gap-2.5 shadow-[0_8px_30px_rgba(217,107,45,0.4)] hover:scale-102 cursor-pointer z-10"
+        >
           <Download className="w-5 h-5" />
           Download Echo for macOS
         </button>
