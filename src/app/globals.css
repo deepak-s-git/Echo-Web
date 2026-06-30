@@ -3,12 +3,12 @@
 :root {
   --background: #0D0D0F; /* Obsidian near-black */
   --foreground: #F0F0F5; /* Crisp off-white */
-  --surface: rgba(20, 20, 23, 0.6); /* Glassmorphic Graphite */
+  --surface: rgba(22, 22, 26, 0.76); /* Glassmorphic Graphite - slightly more solid for contrast */
   --primary: #D96B2D;     /* Cybernetic Copper */
   --secondary: #F0A624;   /* Warm Amber */
   --tertiary: #D1BD8C;    /* Champagne Gold */
-  --text-secondary: #8A8A9A;
-  --border-custom: rgba(255, 255, 255, 0.06);
+  --text-secondary: #A0A0B0; /* Brighter grey for text readability */
+  --border-custom: rgba(255, 255, 255, 0.11); /* More defined glass borders */
 }
 
 @theme {
@@ -38,7 +38,7 @@ body {
 
 /* Glassmorphism Panel */
 .glass-panel {
-  background-color: rgba(20, 20, 23, 0.65);
+  background-color: rgba(22, 22, 26, 0.8);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--border-custom);
@@ -47,7 +47,7 @@ body {
 /* Bento Card Hover Glow */
 .bento-card {
   position: relative;
-  background-color: rgba(20, 20, 23, 0.6);
+  background-color: rgba(13, 13, 14, 0.95);
   border: 1px solid var(--border-custom);
   overflow: hidden;
   border-radius: 16px;
@@ -86,6 +86,7 @@ body {
     transparent 100%
   );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   z-index: 2;
