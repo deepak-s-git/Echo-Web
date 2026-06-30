@@ -226,6 +226,14 @@ export default function Lightfall({
     const container = containerRef.current;
     if (!container) return;
 
+    // Completely disable WebGL loop on mobile devices (including desktop mode on touch devices)
+    const isMobile = typeof window !== 'undefined' && (
+      window.innerWidth < 768 ||
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+      (navigator.maxTouchPoints > 0 && /Macintosh/i.test(navigator.userAgent))
+    );
+    if (isMobile) return;
+
     const renderer = new Renderer({
       dpr: dpr ?? (typeof window !== 'undefined' ? window.devicePixelRatio || 1 : 1),
       alpha: true,
