@@ -3,7 +3,7 @@
 import React, { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { BrainCircuit, RotateCcw, Compass, LineChart, Layers, Lock } from "lucide-react";
+import { BrainCircuit, RotateCcw, Compass, Sliders, Layers, Lock } from "lucide-react";
 import GlowCard from "./GlowCard";
 
 if (typeof window !== "undefined") {
@@ -75,7 +75,7 @@ export default function Features() {
 
         {/* Card 2 - One-click Restore */}
         <GlowCard className="reveal-feature skew-elem p-8 min-h-[280px] flex flex-col justify-between">
-          <div className="w-12 h-12 rounded-xl bg-secondary/8 border border-secondary/20 flex items-center justify-center text-secondary mb-6">
+          <div className="w-12 h-12 rounded-xl bg-primary/8 border border-primary/20 flex items-center justify-center text-primary mb-6">
             <RotateCcw className="w-6 h-6" />
           </div>
           <div>
@@ -94,20 +94,20 @@ export default function Features() {
           <div>
             <h3 className="text-xl font-bold text-foreground mb-2">Browser-aware</h3>
             <p className="text-sm text-text-secondary leading-relaxed">
-              Echo captures active browser tabs in Safari and Chrome, so your research context is never lost between sessions.
+              Echo captures active browser tabs in Chrome, Brave, Arc, and Safari, so your research context is never lost between sessions.
             </p>
           </div>
         </GlowCard>
 
-        {/* Card 4 - Focus Score */}
+        {/* Card 4 - Deep Customization */}
         <GlowCard className="reveal-feature skew-elem p-8 min-h-[280px] flex flex-col justify-between">
-          <div className="w-12 h-12 rounded-xl bg-secondary/8 border border-secondary/20 flex items-center justify-center text-secondary mb-6">
-            <LineChart className="w-6 h-6" />
+          <div className="w-12 h-12 rounded-xl bg-primary/8 border border-primary/20 flex items-center justify-center text-primary mb-6">
+            <Sliders className="w-6 h-6" />
           </div>
           <div>
-            <h3 className="text-xl font-bold text-foreground mb-2">Focus Score</h3>
+            <h3 className="text-xl font-bold text-foreground mb-2">Deep Customization</h3>
             <p className="text-sm text-text-secondary leading-relaxed">
-              A real-time focus indicator shows your workflow intensity, so you stay aware of where your attention is going.
+              Tailor Echo to your workspace. Configure idle-state timers, custom recording thresholds, and exclude specific apps, browser domains, or private tabs from being tracked.
             </p>
           </div>
         </GlowCard>
