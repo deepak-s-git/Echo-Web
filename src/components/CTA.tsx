@@ -29,7 +29,7 @@ export default function CTA() {
 
   return (
     <section id="cta" className="py-40 px-6 max-w-5xl mx-auto relative z-10">
-      <div className="reveal-cta skew-elem glass-card p-10 md:p-20 text-center flex flex-col items-center border border-primary/20 shadow-[0_24px_70px_rgba(217,107,45,0.05)] rounded-2xl relative overflow-hidden">
+      <div className="reveal-cta skew-elem bg-[#0d0d0e]/95 p-10 md:p-20 text-center flex flex-col items-center border border-primary/20 shadow-[0_24px_70px_rgba(217,107,45,0.05)] rounded-2xl relative overflow-hidden">
         {/* Glow inner layer */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none" />
         
