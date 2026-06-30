@@ -91,7 +91,7 @@ export default function MenuBarSection() {
 
         {/* Right column: Interactive macOS Menu Bar Mockup */}
         <div className="reveal-menubar-right w-full max-w-md mx-auto relative">
-          <div className="w-full skew-elem bg-[#0d0d0e]/60 border border-border-custom shadow-2xl rounded-2xl overflow-hidden flex flex-col relative">
+          <div className="w-full skew-elem bg-[#0d0d0e]/95 border border-border-custom shadow-2xl rounded-2xl overflow-hidden flex flex-col relative">
 
             {/* macOS Top Menu Bar with Wifi, Battery, Echo Icon, and Date/Time */}
             <div className="h-8 bg-white/4 border-b border-white/5 flex items-center justify-end px-4 gap-3.5 select-none text-foreground/70">
