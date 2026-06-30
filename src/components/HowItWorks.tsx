@@ -160,7 +160,7 @@ export default function HowItWorks() {
 
         {/* Right: Sticky visualizer panel */}
         <div className="hidden md:block h-full">
-          <div className="sticky top-40 w-full h-[400px] skew-elem bg-surface/90 border border-border-custom rounded-2xl shadow-2xl overflow-hidden flex items-center justify-center">
+          <div className="sticky top-40 w-full h-[400px] skew-elem bg-[#0d0d0e]/95 border border-border-custom rounded-2xl shadow-2xl overflow-hidden flex items-center justify-center">
             {/* Step 1 Visual */}
             <div className={`visualizer-step absolute inset-0 flex items-center justify-center p-8 transition-all duration-500 ${
               activeStep === 0 ? "active opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-4 scale-95 pointer-events-none"
