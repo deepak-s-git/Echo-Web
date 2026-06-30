@@ -210,7 +210,7 @@ export default function Hero() {
                 <span className="text-[9px] font-bold tracking-wider text-text-secondary uppercase block mb-2.5">Record Activity</span>
                 <div className="grid grid-cols-2 gap-4">
                   {/* Start New Workflow */}
-                  <div className="bg-white/2 hover:bg-white/4 border border-border-custom hover:border-white/10 rounded-xl p-3.5 flex flex-col gap-2.5 cursor-pointer transition-all duration-300 group">
+                  <div className="bg-white/5 hover:bg-white/8 border border-border-custom hover:border-white/10 rounded-xl p-3.5 flex flex-col gap-2.5 cursor-pointer transition-all duration-300 group">
                     <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#FF5F56]/20 to-[#FFBD2E]/20 border border-[#FF5F56]/20 flex items-center justify-center text-secondary group-hover:scale-105 transition-transform">
                       <Sparkles className="w-4 h-4 text-secondary" />
                     </div>
@@ -221,9 +221,9 @@ export default function Hero() {
                   </div>
 
                   {/* Record in Existing */}
-                  <div className="bg-white/2 hover:bg-white/4 border border-border-custom hover:border-white/10 rounded-xl p-3.5 flex flex-col gap-2.5 cursor-pointer transition-all duration-300 group">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#157EFB]/20 to-[#27C93F]/20 border border-[#157EFB]/20 flex items-center justify-center text-[#157EFB] group-hover:scale-105 transition-transform">
-                      <FolderPlus className="w-4 h-4 text-[#157EFB]" />
+                  <div className="bg-white/5 hover:bg-white/8 border border-border-custom hover:border-white/10 rounded-xl p-3.5 flex flex-col gap-2.5 cursor-pointer transition-all duration-300 group">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#F0A624]/20 to-[#D96B2D]/20 border border-[#F0A624]/20 flex items-center justify-center text-secondary group-hover:scale-105 transition-transform">
+                      <FolderPlus className="w-4 h-4 text-secondary" />
                     </div>
                     <div>
                       <div className="text-xs font-semibold text-foreground">Record in Existing</div>
