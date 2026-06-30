@@ -59,26 +59,6 @@ export default function TimelineShowcase() {
         start: "top 75%",
       }
     });
-
-    // Animate individual workflow cards inside mockup on scroll reveal
-    const workflowCards = gsap.utils.toArray(".reveal-showcase .skew-elem");
-    workflowCards.forEach((card: any) => {
-      gsap.fromTo(card,
-        { opacity: 0, y: 30, scale: 0.98 },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: card,
-            start: "top 95%",
-            toggleActions: "play none none none"
-          }
-        }
-      );
-    });
   }, []);
 
   const workflows: WorkflowData[] = [
@@ -232,7 +212,7 @@ export default function TimelineShowcase() {
                 <div
                   key={wf.id}
                   onClick={() => setExpandedId(isExpanded ? null : wf.id)}
-                  className={`border transition-all duration-300 rounded-xl overflow-hidden cursor-pointer select-none skew-elem ${isExpanded
+                  className={`border transition-all duration-300 rounded-xl overflow-hidden cursor-pointer select-none ${isExpanded
                     ? "bg-white/4 border-white/12 shadow-md"
                     : "bg-white/2 hover:bg-white/4 border-border-custom hover:border-white/8"
                     }`}
