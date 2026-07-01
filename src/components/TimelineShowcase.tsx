@@ -262,6 +262,16 @@ export default function TimelineShowcase() {
                         ))}
                       </div>
 
+                      {/* Action Button (Three Dots) */}
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                        }}
+                        className="w-6 h-6 rounded-md bg-white/5 hover:bg-white/10 border border-white/5 flex items-center justify-center text-text-secondary hover:text-foreground transition-all duration-200 cursor-pointer"
+                      >
+                        <MoreHorizontal className="w-3.5 h-3.5" />
+                      </button>
+
                       {/* Expand Chevron */}
                       <div className="text-text-secondary p-1">
                         {isExpanded ? <ChevronDown className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
@@ -277,25 +287,46 @@ export default function TimelineShowcase() {
                         Session History
                       </div>
 
-                      <div className="flex flex-col relative pl-3.5">
-                        {/* Vertical line connecting nodes */}
-                        <div className="absolute left-1.5 top-2.5 bottom-2.5 w-0.5 bg-white/10" />
+                      <div className="flex flex-col relative pl-5">
+                        {wf.sessions.map((session, sIdx) => {
+                          const isLatest = sIdx === wf.sessions.length - 1;
+                          return (
+                            <div
+                              key={sIdx}
+                              className="flex items-start justify-between gap-4 py-2.5 relative group/session"
+                            >
+                              {/* Top segment: connects previous node to this node (colored orange for completed path) */}
+                              {sIdx > 0 && (
+                                <div className="absolute left-[-11px] top-0 h-[12px] w-[1px] bg-secondary/80" />
+                              )}
 
-                        {wf.sessions.map((session, sIdx) => (
-                          <div
-                            key={sIdx}
-                            className="flex items-start justify-between gap-4 py-2.5 relative group/session"
-                          >
-                            {/* Bullet Node */}
-                            <div className="absolute -left-[11px] top-[14px] w-2 h-2 rounded-full bg-[#1c1c1e] border-2 border-text-secondary group-hover/session:border-secondary transition-colors" />
+                              {/* Bottom segment: connects this node to the next node (colored orange for completed path) */}
+                              {sIdx < wf.sessions.length - 1 && (
+                                <div className="absolute left-[-11px] top-[26px] bottom-0 w-[1px] bg-secondary/80" />
+                              )}
 
-                            {/* Session title & time info */}
-                            <div>
-                              <div className="text-xs font-semibold text-foreground group-hover/session:text-secondary transition-colors">
-                                {session.name}
+                              {/* Premium Concentric Bullet Node */}
+                              <div className="absolute -left-[18px] top-[12px] w-3.5 h-3.5 flex items-center justify-center rounded-full bg-[#141417] z-10">
+                                {isLatest ? (
+                                  // Latest/newest session gets the blinking neon accent ring
+                                  <div className="w-3.5 h-3.5 rounded-full border border-secondary/40 bg-secondary/15 flex items-center justify-center shadow-[0_0_8px_rgba(240,166,36,0.35)]">
+                                    <div className="w-1.5 h-1.5 rounded-full bg-secondary shadow-[0_0_6px_rgba(240,166,36,0.9)] animate-pulse" />
+                                  </div>
+                                ) : (
+                                  // Default subtle dot-in-ring
+                                  <div className="w-3.5 h-3.5 rounded-full border border-white/10 bg-white/5 flex items-center justify-center group-hover/session:border-secondary/40 group-hover/session:bg-secondary/10 transition-all duration-300">
+                                    <div className="w-1.5 h-1.5 rounded-full bg-text-secondary group-hover/session:bg-secondary transition-all duration-300" />
+                                  </div>
+                                )}
                               </div>
-                              <div className="text-[10px] text-text-secondary mt-0.5">{session.time}</div>
-                            </div>
+
+                              {/* Session title & time info */}
+                              <div>
+                                <div className={`text-xs font-semibold transition-colors ${isLatest ? "text-secondary" : "text-foreground group-hover/session:text-secondary"}`}>
+                                  {session.name}
+                                </div>
+                                <div className="text-[10px] text-text-secondary mt-0.5">{session.time}</div>
+                              </div>
 
                             {/* Session stats (app badge & duration) */}
                             <div className="flex items-center gap-3">
@@ -307,7 +338,8 @@ export default function TimelineShowcase() {
                               </span>
                             </div>
                           </div>
-                        ))}
+                        );
+                      })}
                       </div>
                     </div>
                   )}
