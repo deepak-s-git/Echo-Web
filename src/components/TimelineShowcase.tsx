@@ -66,7 +66,7 @@ export default function TimelineShowcase() {
       id: "design-system",
       title: "Design System Redesign",
       badge: "Active",
-      lastActive: "Today at 11:20",
+      lastActive: "Today at 15:20",
       totalTime: "2h 05m",
       sessionsCount: 2,
       apps: [
@@ -76,15 +76,15 @@ export default function TimelineShowcase() {
         { name: "Safari", color: "#157EFB", icon: <Globe className="w-3 h-3 text-white" />, letter: "S" }
       ],
       sessions: [
-        { name: "Color Palette Refinement", time: "Today • 10:00 - 11:20", appsCount: 3, duration: "1h 20m" },
-        { name: "Typography Scale Setup", time: "Today • 08:30 - 09:15", appsCount: 2, duration: "45m" }
+        { name: "Typography Scale Setup", time: "Today • 12:30 - 13:15", appsCount: 2, duration: "45m" },
+        { name: "Color Palette Refinement", time: "Today • 14:00 - 15:20", appsCount: 3, duration: "1h 20m" }
       ]
     },
     {
       id: "nextjs-landing",
       title: "Next.js Landing Page",
       badge: "Continued 2 times",
-      lastActive: "Today at 09:15",
+      lastActive: "Today at 16:45",
       totalTime: "27m",
       sessionsCount: 3,
       apps: [
@@ -93,9 +93,9 @@ export default function TimelineShowcase() {
         { name: "Terminal", color: "#000000", icon: <Terminal className="w-3 h-3 text-white" />, letter: ">_" }
       ],
       sessions: [
-        { name: "Hero Section Edit", time: "Jun 17 • 09:15 - 09:27", appsCount: 3, duration: "12m" },
-        { name: "Feature Grid Setup", time: "Jun 17 • 09:35 - 09:45", appsCount: 2, duration: "10m" },
-        { name: "Asset Compilation", time: "Jun 17 • 09:50 - 09:55", appsCount: 1, duration: "5m" }
+        { name: "Hero Section Edit", time: "Jun 17 • 14:15 - 14:27", appsCount: 3, duration: "12m" },
+        { name: "Feature Grid Setup", time: "Jun 17 • 15:35 - 15:45", appsCount: 2, duration: "10m" },
+        { name: "Asset Compilation", time: "Jun 17 • 16:50 - 16:55", appsCount: 1, duration: "5m" }
       ]
     },
     {
@@ -110,8 +110,8 @@ export default function TimelineShowcase() {
         { name: "Terminal", color: "#000000", icon: <Terminal className="w-3 h-3 text-white" />, letter: ">_" }
       ],
       sessions: [
-        { name: "Database Migrations", time: "Jun 16 • 18:00 - 18:30", appsCount: 2, duration: "30m" },
-        { name: "Token Refresh Handler", time: "Jun 16 • 17:15 - 17:32", appsCount: 2, duration: "17m" }
+        { name: "Token Refresh Handler", time: "Jun 16 • 17:15 - 17:32", appsCount: 2, duration: "17m" },
+        { name: "Database Migrations", time: "Jun 16 • 18:00 - 18:30", appsCount: 2, duration: "30m" }
       ]
     }
   ];
