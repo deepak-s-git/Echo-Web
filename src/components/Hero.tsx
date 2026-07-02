@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Monitor, Code, Clock, LayoutGrid, ShieldCheck, Home, Sliders, Search, Sparkles, FolderPlus, Globe, Sidebar, Layers } from "lucide-react";
+import { Monitor, Code, Clock, LayoutGrid, ShieldCheck, Home, Sliders, Search, Sparkles, FolderPlus, Globe, Sidebar, Layers, RotateCcw, ChevronRight } from "lucide-react";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -135,7 +135,7 @@ export default function Hero() {
       </div>
 
       {/* macOS Window Mockup */}
-      <div className="hero-fade opacity-0 translate-y-12 w-full max-w-4xl aspect-[16/10] hero-mockup-container">
+      <div className="hero-fade opacity-0 translate-y-12 w-full max-w-4xl aspect-[16/11.2] hero-mockup-container">
         <div
           ref={mockupRef}
           className="hero-mockup w-full h-full bg-[#0d0d0e]/95 border border-white/8 shadow-2xl rounded-2xl flex overflow-hidden"
@@ -190,9 +190,9 @@ export default function Hero() {
             </div>
 
             {/* Content Area */}
-            <div className="p-6 flex flex-col overflow-y-auto bg-black/5 select-none">
+            <div className="pt-5 px-5 pb-4 flex flex-col overflow-y-auto bg-black/5 select-none">
               {/* Header */}
-              <div className="flex justify-between items-center mb-5">
+              <div className="flex justify-between items-center mb-3.5">
                 <div className="flex items-center gap-1.5 text-[9px] font-extrabold tracking-widest text-text-secondary">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary" />
                   <span className="w-1.5 h-1.5 rounded-full bg-secondary" />
@@ -201,16 +201,43 @@ export default function Hero() {
               </div>
 
               {/* Header Title */}
-              <h2 className="text-xl sm:text-2xl font-black text-foreground tracking-tight mb-6 max-w-lg leading-tight">
+              <h2 className="text-xl sm:text-2xl font-black text-foreground tracking-tight mb-4 max-w-lg leading-tight">
                 Recall and continue your working context instantly.
               </h2>
 
+              {/* Continue Previous Session Card */}
+              <div className="bg-white/5 hover:bg-white/8 border border-border-custom hover:border-white/10 rounded-xl p-3 flex items-center justify-between gap-4 cursor-pointer transition-all duration-300 group mb-4.5">
+                <div className="flex items-center gap-3.5">
+                  <div className="w-8.5 h-8.5 rounded-full bg-secondary/10 border border-secondary/20 flex items-center justify-center text-secondary group-hover:scale-105 transition-transform flex-shrink-0">
+                    <RotateCcw className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className="text-xs font-semibold text-foreground">Continue Previous Session</span>
+                      <span className="bg-secondary/15 border border-secondary/20 text-secondary text-[8px] font-extrabold px-1.5 py-0.5 rounded-full uppercase tracking-wider">
+                        Resume Latest
+                      </span>
+                    </div>
+                    <div className="text-[9px] text-text-secondary mt-1">
+                      Workflow: <span className="text-foreground font-semibold">Design System Redesign</span> &bull; Latest Session: <span className="text-foreground font-semibold">Color Palette Refinement</span> &bull; Ended 29 minutes ago
+                    </div>
+                    <div className="flex gap-1 mt-1.5">
+                      <div className="w-5 h-5 rounded-md bg-[#F24E1E] border border-[#141417] flex items-center justify-center text-[9px] text-white font-bold select-none shadow-sm">F</div>
+                      <div className="w-5 h-5 rounded-md bg-[#007ACC] border border-[#141417] flex items-center justify-center text-[9px] text-white font-bold select-none shadow-sm">C</div>
+                      <div className="w-5 h-5 rounded-md bg-[#4A154B] border border-[#141417] flex items-center justify-center text-[9px] text-white font-bold select-none shadow-sm">S</div>
+                      <div className="w-5 h-5 rounded-md bg-[#157EFB] border border-[#141417] flex items-center justify-center text-[9px] text-white font-bold select-none shadow-sm">S</div>
+                    </div>
+                  </div>
+                </div>
+                <ChevronRight className="w-4 h-4 text-text-secondary group-hover:translate-x-1 transition-transform flex-shrink-0" />
+              </div>
+
               {/* Record Activity Grid */}
-              <div className="mb-6">
+              <div className="mb-4.5">
                 <span className="text-[9px] font-bold tracking-wider text-text-secondary uppercase block mb-2.5">Record Activity</span>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-3">
                   {/* Start New Workflow */}
-                  <div className="bg-white/5 hover:bg-white/8 border border-border-custom hover:border-white/10 rounded-xl p-3.5 flex flex-col gap-2.5 cursor-pointer transition-all duration-300 group">
+                  <div className="bg-white/5 hover:bg-white/8 border border-border-custom hover:border-white/10 rounded-xl p-3 flex flex-col gap-2.5 cursor-pointer transition-all duration-300 group">
                     <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#FF5F56]/20 to-[#FFBD2E]/20 border border-[#FF5F56]/20 flex items-center justify-center text-secondary group-hover:scale-105 transition-transform">
                       <Sparkles className="w-4 h-4 text-secondary" />
                     </div>
@@ -221,7 +248,7 @@ export default function Hero() {
                   </div>
 
                   {/* Record in Existing */}
-                  <div className="bg-white/5 hover:bg-white/8 border border-border-custom hover:border-white/10 rounded-xl p-3.5 flex flex-col gap-2.5 cursor-pointer transition-all duration-300 group">
+                  <div className="bg-white/5 hover:bg-white/8 border border-border-custom hover:border-white/10 rounded-xl p-3 flex flex-col gap-2.5 cursor-pointer transition-all duration-300 group">
                     <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-primary/20 to-secondary/20 border border-primary/20 flex items-center justify-center text-secondary group-hover:scale-105 transition-transform">
                       <FolderPlus className="w-4 h-4 text-secondary" />
                     </div>
@@ -236,51 +263,18 @@ export default function Hero() {
 
 
               {/* Recent Sessions Section */}
-              <div className="mb-6">
+              <div className="mb-4.5">
                 <span className="text-[9px] font-bold tracking-wider text-text-secondary uppercase block mb-2.5">Recent Sessions</span>
-                <div className="flex flex-col gap-2">
-                  {/* Row 1: Typography Scale Setup */}
-                  <div className="reveal-row bg-white/5 hover:bg-white/8 border border-border-custom rounded-xl px-4 py-2.5 flex items-center justify-between cursor-pointer transition-colors duration-300">
-                    <div className="flex items-center gap-3">
-                      <div className="w-7 h-7 rounded-full bg-[#F0A624]/10 border border-[#F0A624]/20 flex items-center justify-center text-secondary">
-                        <LayoutGrid className="w-3.5 h-3.5" />
-                      </div>
-                      <div>
-                        <div className="text-xs font-semibold text-foreground">Typography Scale Setup</div>
-                        <div className="text-[9px] text-text-secondary mt-0.5">Jun 17, 2026 at 08:30 • 45m</div>
-                      </div>
-                    </div>
-                    <div className="flex -space-x-1.5 overflow-hidden">
-                      <div className="w-5 h-5 rounded-md bg-[#F24E1E] border border-[#141417] flex items-center justify-center text-[9px] text-white font-bold select-none shadow-sm">F</div>
-                      <div className="w-5 h-5 rounded-md bg-[#007ACC] border border-[#141417] flex items-center justify-center text-[9px] text-white font-bold select-none shadow-sm">C</div>
-                    </div>
-                  </div>
-
-                  {/* Row 2: Asset Compilation */}
-                  <div className="reveal-row bg-white/5 hover:bg-white/8 border border-border-custom rounded-xl px-4 py-2.5 flex items-center justify-between cursor-pointer transition-colors duration-300">
-                    <div className="flex items-center gap-3">
-                      <div className="w-7 h-7 rounded-full bg-[#10b981]/15 border border-[#10b981]/25 flex items-center justify-center text-[#10b981]">
-                        <Globe className="w-3.5 h-3.5" />
-                      </div>
-                      <div>
-                        <div className="text-xs font-semibold text-foreground">Asset Compilation</div>
-                        <div className="text-[9px] text-text-secondary mt-0.5">Jun 17, 2026 at 09:50 • 5m</div>
-                      </div>
-                    </div>
-                    <div className="flex -space-x-1.5 overflow-hidden">
-                      <div className="w-5 h-5 rounded-md bg-[#EA4335] border border-[#141417] flex items-center justify-center text-[9px] text-white font-bold select-none shadow-sm">C</div>
-                    </div>
-                  </div>
-
-                  {/* Row 3: Color Palette Refinement */}
-                  <div className="reveal-row bg-white/5 hover:bg-white/8 border border-border-custom rounded-xl px-4 py-2.5 flex items-center justify-between cursor-pointer transition-colors duration-300">
+                <div className="flex flex-col gap-1.5">
+                  {/* Row 1: Color Palette Refinement (Newest) */}
+                  <div className="reveal-row bg-white/5 hover:bg-white/8 border border-border-custom rounded-xl px-4 py-2 flex items-center justify-between cursor-pointer transition-colors duration-300">
                     <div className="flex items-center gap-3">
                       <div className="w-7 h-7 rounded-full bg-[#8b5cf6]/10 border border-[#8b5cf6]/20 flex items-center justify-center text-[#a78bfa]">
                         <Layers className="w-3.5 h-3.5" />
                       </div>
                       <div>
                         <div className="text-xs font-semibold text-foreground">Color Palette Refinement</div>
-                        <div className="text-[9px] text-text-secondary mt-0.5">Jun 17, 2026 at 10:00 • 1h 20m</div>
+                        <div className="text-[9px] text-text-secondary mt-0.5">Today at 14:00 • 1h 20m</div>
                       </div>
                     </div>
                     <div className="flex -space-x-1.5 overflow-hidden">
@@ -288,6 +282,39 @@ export default function Hero() {
                       <div className="w-5 h-5 rounded-md bg-[#007ACC] border border-[#141417] flex items-center justify-center text-[9px] text-white font-bold select-none shadow-sm">C</div>
                       <div className="w-5 h-5 rounded-md bg-[#4A154B] border border-[#141417] flex items-center justify-center text-[9px] text-white font-bold select-none shadow-sm">S</div>
                       <div className="w-5 h-5 rounded-md bg-[#157EFB] border border-[#141417] flex items-center justify-center text-[9px] text-white font-bold select-none shadow-sm">S</div>
+                    </div>
+                  </div>
+
+                  {/* Row 2: Typography Scale Setup (Middle) */}
+                  <div className="reveal-row bg-white/5 hover:bg-white/8 border border-border-custom rounded-xl px-4 py-2 flex items-center justify-between cursor-pointer transition-colors duration-300">
+                    <div className="flex items-center gap-3">
+                      <div className="w-7 h-7 rounded-full bg-[#F0A624]/10 border border-[#F0A624]/20 flex items-center justify-center text-secondary">
+                        <LayoutGrid className="w-3.5 h-3.5" />
+                      </div>
+                      <div>
+                        <div className="text-xs font-semibold text-foreground">Typography Scale Setup</div>
+                        <div className="text-[9px] text-text-secondary mt-0.5">Today at 12:30 • 45m</div>
+                      </div>
+                    </div>
+                    <div className="flex -space-x-1.5 overflow-hidden">
+                      <div className="w-5 h-5 rounded-md bg-[#F24E1E] border border-[#141417] flex items-center justify-center text-[9px] text-white font-bold select-none shadow-sm">F</div>
+                      <div className="w-5 h-5 rounded-md bg-[#007ACC] border border-[#141417] flex items-center justify-center text-[9px] text-white font-bold select-none shadow-sm">C</div>
+                    </div>
+                  </div>
+
+                  {/* Row 3: Asset Compilation (Oldest) */}
+                  <div className="reveal-row bg-white/5 hover:bg-white/8 border border-border-custom rounded-xl px-4 py-2 flex items-center justify-between cursor-pointer transition-colors duration-300">
+                    <div className="flex items-center gap-3">
+                      <div className="w-7 h-7 rounded-full bg-[#10b981]/15 border border-[#10b981]/25 flex items-center justify-center text-[#10b981]">
+                        <Globe className="w-3.5 h-3.5" />
+                      </div>
+                      <div>
+                        <div className="text-xs font-semibold text-foreground">Asset Compilation</div>
+                        <div className="text-[9px] text-text-secondary mt-0.5">Jun 17, 2026 at 16:50 • 5m</div>
+                      </div>
+                    </div>
+                    <div className="flex -space-x-1.5 overflow-hidden">
+                      <div className="w-5 h-5 rounded-md bg-[#EA4335] border border-[#141417] flex items-center justify-center text-[9px] text-white font-bold select-none shadow-sm">C</div>
                     </div>
                   </div>
                 </div>
@@ -298,11 +325,11 @@ export default function Hero() {
                 <div className="flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary" />
                   <span className="w-1.5 h-1.5 rounded-full bg-secondary" />
-                  12 active workflows
+                  3 active workflows
                 </div>
                 <div className="flex items-center gap-1">
                   <Clock className="w-3.5 h-3.5 text-secondary" />
-                  Total tracked: 124h 45m
+                  Total tracked: 3h 19m
                 </div>
               </div>
             </div>
