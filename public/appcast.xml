@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Echo Updates</title>
+    <link>https://echo-macos.vercel.app/appcast.xml</link>
+    <description>Most recent updates for Echo.</description>
+    <language>en</language>
+    <item>
+      <title>Version 1.0</title>
+      <pubDate>Thu, 02 Jul 2026 16:15:00 +0530</pubDate>
+      <enclosure url="https://echo-macos.vercel.app/Echo.zip"
+                 sparkle:version="1"
+                 sparkle:shortVersionString="1.0"
+                 length="8264963"
+                 type="application/octet-stream"
+                 sparkle:edSignature="h2T/N7oKDmx9xe8/p6UvEhKOEn98V6JOw7L1jLESWZrFVawwhkwA6t/2wRpvljT7b7o+LOCWDfpih/qsrcWqBA==" />
+    </item>
+  </channel>
+</rss>
