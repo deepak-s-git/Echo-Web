@@ -289,7 +289,7 @@ export default function TimelineShowcase() {
 
                       <div className="flex flex-col relative pl-5">
                         {wf.sessions.map((session, sIdx) => {
-                          const isLatest = sIdx === wf.sessions.length - 1;
+                          const isLatest = sIdx === (wf.sessions?.length || 0) - 1;
                           return (
                             <div
                               key={sIdx}
@@ -301,7 +301,7 @@ export default function TimelineShowcase() {
                               )}
 
                               {/* Bottom segment: connects this node to the next node (colored orange for completed path) */}
-                              {sIdx < wf.sessions.length - 1 && (
+                              {sIdx < (wf.sessions?.length || 0) - 1 && (
                                 <div className="absolute left-[-11px] top-[26px] bottom-0 w-[1px] bg-secondary/80" />
                               )}
 
