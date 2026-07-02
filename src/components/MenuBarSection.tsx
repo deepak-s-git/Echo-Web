@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { RotateCcw, Wifi, BatteryMedium, Sparkles } from "lucide-react";
+import { RotateCcw, Wifi, Sparkles, Search } from "lucide-react";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -104,10 +104,19 @@ export default function MenuBarSection() {
                 <img src="/echo_butterfly_icon.png" alt="Echo Logo" className="w-3.5 h-3.5 object-contain" />
               </div>
 
-              <Wifi className="w-3.5 h-3.5" />
-              <BatteryMedium className="w-4 h-4" />
+              <Wifi className="w-3.5 h-3.5 text-foreground/80" />
 
-              <span className="text-[11px] font-medium">Wed Jun 17 12:28 PM</span>
+              {/* Apple-style Battery Charging Icon */}
+              <svg width="22" height="13" viewBox="0 0 22 13" fill="none" stroke="currentColor" strokeWidth="1.2" className="w-[18px] h-[11px] text-foreground/80 flex-shrink-0">
+                <rect x="0.5" y="1" width="17" height="11" rx="2.5" fill="none" />
+                <path d="M19.5 4.5V8.5" stroke="currentColor" strokeLinecap="round" strokeWidth="1.5" />
+                <path d="M9.5 2.5L6.5 7H9.5L8.5 10.5L12.5 5.5H9.5L9.5 2.5Z" fill="currentColor" stroke="none" />
+              </svg>
+
+              {/* Spotlight Search Icon */}
+              <Search className="w-3.5 h-3.5 text-foreground/80 flex-shrink-0" />
+
+              <span className="text-[11px] font-medium text-foreground/80 tracking-wide">Wed Jun 17 12:28 PM</span>
             </div>
 
             {/* Desktop Wallpaper Canvas (behind dropdown) */}
@@ -120,7 +129,7 @@ export default function MenuBarSection() {
 
             {/* Popover Dropdown Panel positioned absolutely relative to the mockup container */}
             <div
-              className={`absolute z-30 w-[290px] bg-[#221f1d]/95 backdrop-blur-xl border border-white/10 rounded-2xl p-3 shadow-2xl flex flex-col gap-2.5 transition-all duration-300 transform origin-top-right ${popoverOpen
+              className={`absolute z-30 w-[290px] bg-[#09090b]/98 backdrop-blur-xl border border-white/10 rounded-2xl p-3 shadow-2xl flex flex-col gap-2.5 transition-all duration-300 transform origin-top-right ${popoverOpen
                 ? "opacity-100 scale-100 translate-y-0"
                 : "opacity-0 scale-95 -translate-y-2 pointer-events-none"
                 }`}
@@ -143,7 +152,7 @@ export default function MenuBarSection() {
               </div>
 
               {/* Card 1: Start Workflow Recording */}
-              <div className="bg-black/25 border border-white/6 rounded-xl p-2.5 flex flex-col gap-2">
+              <div className="bg-white/[0.02] border border-white/[0.08] rounded-xl p-2.5 flex flex-col gap-2">
                 <span className="text-[10px] font-bold text-text-secondary tracking-wider uppercase block">
                   {isRecording ? "Current Session" : "Start Workflow Recording"}
                 </span>
@@ -156,7 +165,7 @@ export default function MenuBarSection() {
                     value={workflowName}
                     disabled={isRecording}
                     onChange={(e) => setWorkflowName(e.target.value)}
-                    className="flex-1 bg-[#131110] border border-white/5 hover:border-white/10 focus:border-primary/40 rounded-lg px-2.5 py-1.5 text-xs text-foreground placeholder:text-text-secondary focus:outline-none transition-colors"
+                    className="flex-1 bg-black/40 border border-white/5 hover:border-white/10 focus:border-primary/40 rounded-lg px-2.5 py-1.5 text-xs text-foreground placeholder:text-text-secondary focus:outline-none transition-colors"
                   />
 
                   {/* Record / Stop Button */}
@@ -199,7 +208,7 @@ export default function MenuBarSection() {
                   Recent Memories
                 </span>
 
-                <div className="bg-black/15 border border-white/6 rounded-xl overflow-hidden divide-y divide-white/5">
+                <div className="bg-white/[0.02] border border-white/[0.08] rounded-xl overflow-hidden divide-y divide-white/5">
                   {initialMemories.map((mem) => {
                     const restored = justRestored === mem.id;
                     return (
