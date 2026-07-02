@@ -427,7 +427,7 @@ export default function Navbar() {
                 
                 // 2. Trigger download
                 const link = document.createElement("a");
-                link.href = decodeB64("aHR0cHM6Ly9naXRodWIuY29tL2RlZXBhay1zLWdpdC9FY2hvL3JlbGVhc2VzL2xhdGVzdC9kb3dubG9hZC9FY2hvLmRtZw==");
+                link.href = "/Echo.dmg";
                 link.setAttribute("download", "Echo.dmg");
                 document.body.appendChild(link);
                 link.click();
