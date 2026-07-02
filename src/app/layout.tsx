@@ -41,7 +41,7 @@ export default function RootLayout({
             streakCount={2}
             streakWidth={1.0}
             streakLength={1.0}
-            glow={1.2}
+            glow={4}
             density={0.4}
             twinkle={0.8}
             zoom={3}
