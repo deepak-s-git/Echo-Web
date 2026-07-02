@@ -188,7 +188,7 @@ export default function TimelineShowcase() {
                   <CalendarRange className="w-3 h-3 text-secondary" /> 7 sessions
                 </span>
                 <span className="bg-white/4 px-2 py-0.5 rounded-full flex items-center gap-1">
-                  <Clock className="w-3 h-3 text-tertiary" /> 31:57
+                  <Clock className="w-3 h-3 text-tertiary" /> 3h 19m
                 </span>
               </div>
             </div>
