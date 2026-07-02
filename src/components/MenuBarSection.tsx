@@ -116,7 +116,7 @@ export default function MenuBarSection() {
               {/* Spotlight Search Icon */}
               <Search className="w-3.5 h-3.5 text-foreground/80 flex-shrink-0" />
 
-              <span className="text-[11px] font-medium text-foreground/80 tracking-wide">Wed Jun 17 12:28 PM</span>
+              <span className="text-[11px] font-medium text-foreground/80 tracking-wide">Wed Jun 17 12:28</span>
             </div>
 
             {/* Desktop Wallpaper Canvas (behind dropdown) */}
