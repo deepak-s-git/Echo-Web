@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import crypto from "crypto";
 
 // Simple helper to sanitize strings and prevent control character injection
 function sanitizeString(str: string, maxLength: number): string {
@@ -29,14 +30,70 @@ export async function POST(request: Request) {
     const name = sanitizeString(rawName, 100);
     const email = sanitizeString(rawEmail, 254);
 
-    // Backend Email regex verification (Never trust the client alone!)
+    // Backend Email regex verification
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email) || name.length < 2) {
       return NextResponse.json({ error: "Invalid name or email format" }, { status: 400 });
     }
 
-    // 3. Setup Google Sheets integration
+    // 3. Backend client analytics gathering
+    const timestamp = new Date().toISOString();
+    const country = request.headers.get("x-vercel-ip-country") || "Localhost";
+    
+    // IP Hash generation (Anonymized SHA-256)
+    const clientIp = request.headers.get("x-forwarded-for")?.split(",")[0] || request.headers.get("x-real-ip") || "127.0.0.1";
+    const ipHash = crypto.createHash("sha256").update(clientIp).digest("hex").slice(0, 8);
+
+    // User-Agent Parsing (macOS Version & Browser)
+    const userAgent = request.headers.get("user-agent") || "";
+    
+    let macosVersion = "Unknown macOS";
+    const macRegex = /Mac OS X ([\d_.]+)/i;
+    const macMatch = userAgent.match(macRegex);
+    if (macMatch && macMatch[1]) {
+      macosVersion = `macOS ${macMatch[1].replace(/_/g, ".")}`;
+    } else if (/macintosh/i.test(userAgent)) {
+      macosVersion = "macOS";
+    }
+
+    let browser = "Unknown Browser";
+    if (/chrome|crios/i.test(userAgent) && !/edge|edg/i.test(userAgent) && !/opr/i.test(userAgent)) {
+      browser = "Chrome";
+    } else if (/safari/i.test(userAgent) && !/chrome|crios/i.test(userAgent)) {
+      browser = "Safari";
+    } else if (/firefox|fxios/i.test(userAgent)) {
+      browser = "Firefox";
+    } else if (/edge|edg/i.test(userAgent)) {
+      browser = "Edge";
+    } else if (/opr/i.test(userAgent)) {
+      browser = "Opera";
+    }
+
+    const downloadCount = 1;
+
+    // 4. Setup Google Sheets integration
     const GOOGLE_SHEETS_WEBHOOK_URL = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
+
+    const payload = {
+      // camelCase keys
+      name,
+      email,
+      timestamp,
+      country,
+      ipHash,
+      macosVersion,
+      downloadCount,
+      browser,
+      // Capitalized Column-matching keys (bulletproof compatibility)
+      "Name": name,
+      "Email": email,
+      "Timestamp": timestamp,
+      "Country": country,
+      "IP Hash": ipHash,
+      "macOS Version": macosVersion,
+      "Download Count": downloadCount,
+      "Browser": browser
+    };
 
     if (GOOGLE_SHEETS_WEBHOOK_URL) {
       try {
@@ -45,11 +102,7 @@ export async function POST(request: Request) {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({
-            name,
-            email,
-            timestamp: new Date().toISOString(),
-          }),
+          body: JSON.stringify(payload),
         });
 
         if (!response.ok) {
@@ -62,7 +115,7 @@ export async function POST(request: Request) {
       // If webhook is not set, log to console for local developer debugging
       console.warn(
         "Warning: GOOGLE_SHEETS_WEBHOOK_URL environment variable is not configured. Details logged locally:",
-        { name, email }
+        payload
       );
     }
 
