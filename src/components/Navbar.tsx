@@ -106,7 +106,7 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between px-6 py-3 w-[calc(100%-48px)] max-w-5xl rounded-full transition-all duration-300 ${scrolled
+        className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between px-6 py-3 w-[calc(100%-48px)] max-w-5xl rounded-full transition-all duration-300 navbar-fade opacity-0 ${scrolled
           ? "bg-background/80 backdrop-blur-md border border-border-custom shadow-2xl"
           : "bg-surface/30 backdrop-blur-sm border border-transparent"
           }`}

@@ -31,6 +31,11 @@ export default function Hero() {
         stagger: 0.12,
         ease: "power3.out"
       }, "-=0.6")
+      .to(".navbar-fade", {
+        opacity: 1,
+        duration: 0.8,
+        ease: "power2.out"
+      }, "-=0.4")
       .fromTo(".reveal-row",
         { opacity: 0, x: -30 },
         {
