@@ -34,6 +34,32 @@ interface WorkflowData {
 export default function TimelineShowcase() {
   const [expandedId, setExpandedId] = useState<string | null>("nextjs-landing");
 
+  const getWorkflowIcon = (id: string) => {
+    switch (id) {
+      case "design-system":
+        return <Layers className="w-4 h-4" />;
+      case "nextjs-landing":
+        return <Globe className="w-4 h-4" />;
+      case "rust-auth-api":
+        return <Code className="w-4 h-4" />;
+      default:
+        return <Layers className="w-4 h-4" />;
+    }
+  };
+
+  const getWorkflowIconClasses = (id: string) => {
+    switch (id) {
+      case "design-system":
+        return "bg-[#8b5cf6]/10 border border-[#8b5cf6]/20 text-[#a78bfa]";
+      case "nextjs-landing":
+        return "bg-[#10b981]/15 border border-[#10b981]/25 text-[#10b981]";
+      case "rust-auth-api":
+        return "bg-[#F0A624]/10 border border-[#F0A624]/20 text-secondary";
+      default:
+        return "bg-white/5 border border-white/10 text-text-secondary";
+    }
+  };
+
   useEffect(() => {
     // Animate Header
     gsap.from(".reveal-timeline-header", {
@@ -221,8 +247,8 @@ export default function TimelineShowcase() {
                   <div className="p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     <div className="flex items-start gap-4">
                       {/* Icon */}
-                      <div className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-secondary flex-shrink-0 mt-0.5">
-                        {wf.apps[0]?.icon}
+                      <div className={`w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 border ${getWorkflowIconClasses(wf.id)}`}>
+                        {getWorkflowIcon(wf.id)}
                       </div>
 
                       {/* Info */}
