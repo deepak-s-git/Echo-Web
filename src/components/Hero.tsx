@@ -33,9 +33,9 @@ export default function Hero() {
       }, "-=0.6")
       .to(".navbar-fade", {
         opacity: 1,
-        duration: 0.8,
+        duration: 1.2,
         ease: "power2.out"
-      }, "-=0.4")
+      }, "-=0.6")
       .fromTo(".reveal-row",
         { opacity: 0, x: -30 },
         {
