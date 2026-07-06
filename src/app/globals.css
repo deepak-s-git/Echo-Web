@@ -7,7 +7,7 @@
   --primary: #D96B2D;     /* Cybernetic Copper */
   --secondary: #F0A624;   /* Warm Amber */
   --tertiary: #D1BD8C;    /* Champagne Gold */
-  --text-secondary: #A0A0B0; /* Brighter grey for text readability */
+  --text-secondary: #CDCDDC; /* Brighter grey for text readability */
   --border-custom: rgba(255, 255, 255, 0.11); /* More defined glass borders */
 }
 
