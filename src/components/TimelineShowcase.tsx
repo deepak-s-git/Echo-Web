@@ -13,6 +13,14 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
+const TimelineIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="none" className={className}>
+    <path fillRule="evenodd" clipRule="evenodd" d="M 8 5 H 16 A 3 3 0 0 1 19 8 V 16 A 3 3 0 0 1 16 19 H 8 A 3 3 0 0 1 5 16 V 8 A 3 3 0 0 1 8 5 Z M 10 7 H 14 A 1 1 0 0 1 15 8 V 16 A 1 1 0 0 1 14 17 H 10 A 1 1 0 0 1 9 16 V 8 A 1 1 0 0 1 10 7 Z M 7 9.5 A 0.5 0.5 0 0 1 7.5 10 V 14 A 0.5 0.5 0 0 1 7 14.5 A 0.5 0.5 0 0 1 6.5 14 V 10 A 0.5 0.5 0 0 1 7 9.5 Z M 17 9.5 A 0.5 0.5 0 0 1 17.5 10 V 14 A 0.5 0.5 0 0 1 17 14.5 A 0.5 0.5 0 0 1 16.5 14 V 10 A 0.5 0.5 0 0 1 17 9.5 Z" fill="currentColor" />
+    <path d="M 1 12 L 4 9.5 V 14.5 Z" fill="currentColor" />
+    <path d="M 23 12 L 20 9.5 V 14.5 Z" fill="currentColor" />
+  </svg>
+);
+
 interface Session {
   name: string;
   time: string;
@@ -177,15 +185,16 @@ export default function TimelineShowcase() {
           {/* Navigation Links */}
           <div className="flex flex-col gap-1.5">
             <div className="flex items-center gap-2 px-3 py-2 text-xs text-text-secondary hover:text-foreground rounded-lg cursor-pointer transition-colors">
-              <Home className="w-3.5 h-3.5" />
+              <Home className="w-4 h-4 ml-1" />
               Home
             </div>
-            <div className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-foreground bg-white/8 border border-white/5 rounded-lg cursor-pointer">
-              <Sliders className="w-3.5 h-3.5 text-primary" />
+            <div className="relative flex items-center gap-2 px-3 py-2 text-xs font-semibold text-foreground bg-primary/10 rounded-lg cursor-pointer">
+              <div className="absolute left-1 top-1/2 -translate-y-1/2 w-[3px] h-3.5 bg-primary rounded-full" />
+              <TimelineIcon className="w-4 h-4 ml-1" />
               Timeline
             </div>
             <div className="flex items-center gap-2 px-3 py-2 text-xs text-text-secondary hover:text-foreground rounded-lg cursor-pointer transition-colors">
-              <Search className="w-3.5 h-3.5" />
+              <Search className="w-4 h-4 ml-1" />
               Search
             </div>
           </div>
@@ -309,7 +318,7 @@ export default function TimelineShowcase() {
                   {isExpanded && wf.sessions && (
                     <div className="px-5 pb-5 pt-1 border-t border-white/5 bg-black/15 select-none">
                       <div className="text-[10px] font-bold text-text-secondary tracking-wider uppercase mb-3.5 mt-2 flex items-center gap-1.5">
-                        <Sliders className="w-3 h-3 text-secondary" />
+                        <TimelineIcon className="w-3 h-3 text-secondary" />
                         Session History
                       </div>
 
