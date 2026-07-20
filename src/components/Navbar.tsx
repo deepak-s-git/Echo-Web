@@ -427,8 +427,8 @@ export default function Navbar() {
                 
                 // 2. Trigger download
                 const link = document.createElement("a");
-                link.href = "/Echo_v0.1.zip";
-                link.setAttribute("download", "Echo_v0.1.zip");
+                link.href = "/Echo.zip";
+                link.setAttribute("download", "Echo.zip");
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
