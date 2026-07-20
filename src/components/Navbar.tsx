@@ -221,20 +221,20 @@ export default function Navbar() {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-foreground">Deepak.S</h3>
-                  <p className="text-xs text-secondary font-medium">Student & Indie Developer</p>
+                  <p className="text-xs text-secondary font-medium">Indie Developer</p>
                 </div>
               </div>
 
               {/* Description */}
               <div className="space-y-4 text-sm text-text-secondary leading-relaxed mb-8">
                 <p>
-                  Hey there! I'm <strong className="text-foreground">Deepak.S</strong>. I'm a student and a passionate developer who loves crafting minimalist, utility-first software.
+                  Hey there! I'm <strong className="text-foreground">Deepak.S</strong>, an independent software developer building tools that actually solve problems.
                 </p>
                 <p>
-                  Juggling classes, coursework, and programming is a fun challenge. I enjoy dedicating my free time to building tools that solve real productivity problems and simplify developers' daily tasks.
+                  I built Echo to eliminate the friction of context-switching. My goal is to build minimalist, high-performance software that respects your privacy and gets out of your way.
                 </p>
                 <p>
-                  If my projects have saved you time or made your work week smoother, consider sponsoring my work. Any contribution directly supports my education and future software development!
+                  If Echo has saved you time or made your work week smoother, consider sponsoring my work. Your support allows me to keep building great software!
                 </p>
               </div>
 
