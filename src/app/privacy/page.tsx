@@ -7,9 +7,7 @@ export default function PrivacyPolicy() {
     <main className="min-h-screen bg-background flex flex-col relative overflow-hidden">
       <Navbar />
       
-      {/* Dynamic ambient backgrounds */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary/10 blur-[150px] rounded-full pointer-events-none opacity-60" />
-      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-secondary/10 blur-[120px] rounded-full pointer-events-none opacity-40" />
+
 
       <div className="flex-1 flex flex-col items-center justify-start py-32 px-6 relative z-10">
         <div className="max-w-3xl w-full">
