@@ -43,7 +43,7 @@ export default function PrivacyPolicy() {
 
             <h2 className="text-xl font-bold text-foreground mt-8">Contact Us</h2>
             <p>
-              If you have any questions or concerns about how we handle your data, please contact the maintainer through our official support channels.
+              If you have any questions or concerns about how we handle your data, please contact me directly at <a href="mailto:deepak.s.workdesk@gmail.com" className="text-secondary hover:underline">deepak.s.workdesk@gmail.com</a>.
             </p>
           </div>
         </div>
