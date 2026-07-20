@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>Echo</title>
+        <item>
+            <title>0.1</title>
+            <pubDate>Mon, 20 Jul 2026 18:23:35 +0530</pubDate>
+            <sparkle:version>1</sparkle:version>
+            <sparkle:shortVersionString>0.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>26.4</sparkle:minimumSystemVersion>
+            <enclosure url="https://echo-macos.vercel.app/Echo_v0.1.zip" length="8331769" type="application/octet-stream" sparkle:edSignature="hzCv7XuGuQIjw08ykDZ1fwDNlzx1GcKXk1QYBAeXCD9nL0MB1KKvxg06CcHcMLmIGlMUBFQEdYiHprFtN+N/DQ=="/>
+        </item>
+    </channel>
+</rss>
