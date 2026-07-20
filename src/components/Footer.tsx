@@ -31,7 +31,7 @@ export default function Footer() {
 
           <div className="flex flex-col gap-3">
             <span className="text-[10px] uppercase tracking-wider text-foreground font-bold">Resources</span>
-            <a href="#" className="text-xs text-text-secondary hover:text-secondary transition-colors">Privacy Policy</a>
+            <a href="/privacy" className="text-xs text-text-secondary hover:text-secondary transition-colors">Privacy Policy</a>
             <a 
               href="https://github.com/deepak-s-git/Echo" 
               target="_blank" 
@@ -41,7 +41,7 @@ export default function Footer() {
               GitHub Repository
             </a>
             <a 
-              href="https://github.com/deepak-s-git/Echo/issues" 
+              href="https://github.com/deepak-s-git/Echo/security/advisories/new" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-xs text-text-secondary hover:text-secondary transition-colors"
