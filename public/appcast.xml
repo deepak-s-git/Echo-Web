@@ -8,7 +8,8 @@
             <sparkle:version>2</sparkle:version>
             <sparkle:shortVersionString>0.1</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.4</sparkle:minimumSystemVersion>
-            <enclosure url="https://echo-macos.vercel.app/Echo.zip" length="8354094" type="application/octet-stream" sparkle:edSignature="YswQDitytlLPJR5eCZo1wxSoh7AH+ELQCSlHFuRoHI9LTIJzl1muBEht3GDl/xDyNyvCi4Zy+hHOmqgLKgvdCQ=="/>
+            <enclosure url="https://echo-macos.vercel.app/Echo.zip" length="8876971" type="application/octet-stream" sparkle:edSignature="53/7VGaDw09EFHsjqGnkXROBJHxgUoIn9Ueln3IiMP7P+3dry5aE1CYUSAyrJsN0/Zp+RXg6U9PnaR4MC7FBCg=="/>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
         </item>
         <item>
             <title>0.1</title>
