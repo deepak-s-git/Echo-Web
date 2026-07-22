@@ -4,21 +4,12 @@
         <title>Echo</title>
         <item>
             <title>0.1</title>
-            <pubDate>Tue, 21 Jul 2026 14:30:22 +0530</pubDate>
-            <sparkle:version>2</sparkle:version>
-            <sparkle:shortVersionString>0.1</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>26.4</sparkle:minimumSystemVersion>
-            <enclosure url="https://echo-macos.vercel.app/Echo.zip" length="8876971" type="application/octet-stream" sparkle:edSignature="IvznEtPo9hCQXTyGIXzZq0rH6uVAbx8DILqIeNcJ0nW3PIvK/IMh9KbXudBknZaUoSuSlK3ddcOE5oSJFkihCA=="/>
-            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-        </item>
-        <item>
-            <title>0.1</title>
-            <pubDate>Tue, 21 Jul 2026 20:14:08 +0530</pubDate>
-            <sparkle:version>1</sparkle:version>
+            <pubDate>Wed, 22 Jul 2026 21:31:32 +0530</pubDate>
+            <sparkle:version>3</sparkle:version>
             <sparkle:shortVersionString>0.1</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.4</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <enclosure url="https://echo-macos.vercel.app/Echo.zip" length="8876971" type="application/octet-stream" sparkle:edSignature="zvJPcf/pwfkaO/a/xjvWV2Bvvt4+J7H+LC26YQSs81ZyHD5q/7VOZW3p6Iw5wkfwTI3NirFGujSyyBipEnQVCA=="/>
+            <enclosure url="https://echo-macos.vercel.app/Echo.dmg" length="6906142" type="application/octet-stream" sparkle:edSignature="HWPK2xc9AMhOTqyRh+79z+W+6rWwePGegvXYuYxzSNnHfxj1lcYqoJDMpDCja7mA0lRcJlEsehibIX6blp1eDw=="/>
         </item>
     </channel>
 </rss>
