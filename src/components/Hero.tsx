@@ -294,7 +294,7 @@ export default function Hero() {
                       </div>
                       <div>
                         <div className="text-xs font-semibold text-foreground">Color Palette Refinement</div>
-                        <div className="text-[9px] text-text-secondary mt-0.5">Today at 14:00 • 1h 20m</div>
+                        <div className="text-[9px] text-text-secondary mt-0.5">1h ago • 1h 20m</div>
                       </div>
                     </div>
                     <div className="flex -space-x-1.5 overflow-hidden">
@@ -313,7 +313,7 @@ export default function Hero() {
                       </div>
                       <div>
                         <div className="text-xs font-semibold text-foreground">Typography Scale Setup</div>
-                        <div className="text-[9px] text-text-secondary mt-0.5">Today at 12:30 • 45m</div>
+                        <div className="text-[9px] text-text-secondary mt-0.5">2h ago • 45m</div>
                       </div>
                     </div>
                     <div className="flex -space-x-1.5 overflow-hidden">
@@ -330,7 +330,7 @@ export default function Hero() {
                       </div>
                       <div>
                         <div className="text-xs font-semibold text-foreground">Asset Compilation</div>
-                        <div className="text-[9px] text-text-secondary mt-0.5">Jun 17, 2026 at 16:50 • 5m</div>
+                        <div className="text-[9px] text-text-secondary mt-0.5">1w ago • 5m</div>
                       </div>
                     </div>
                     <div className="flex -space-x-1.5 overflow-hidden">
