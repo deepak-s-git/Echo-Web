@@ -100,7 +100,7 @@ export default function TimelineShowcase() {
       id: "design-system",
       title: "Design System Redesign",
       badge: "Active",
-      lastActive: "Today at 15:20",
+      lastActive: "1h ago",
       totalTime: "2h 05m",
       sessionsCount: 2,
       apps: [
@@ -118,7 +118,7 @@ export default function TimelineShowcase() {
       id: "nextjs-landing",
       title: "Next.js Landing Page",
       badge: "Continued 2 times",
-      lastActive: "Today at 16:45",
+      lastActive: "2h ago",
       totalTime: "27m",
       sessionsCount: 3,
       apps: [
@@ -127,16 +127,16 @@ export default function TimelineShowcase() {
         { name: "Terminal", color: "#000000", icon: <Terminal className="w-3 h-3 text-white" />, letter: ">_" }
       ],
       sessions: [
-        { name: "Hero Section Edit", time: "Jun 17 • 14:15 - 14:27", appsCount: 3, duration: "12m" },
-        { name: "Feature Grid Setup", time: "Jun 17 • 15:35 - 15:45", appsCount: 2, duration: "10m" },
-        { name: "Asset Compilation", time: "Jun 17 • 16:50 - 16:55", appsCount: 1, duration: "5m" }
+        { name: "Hero Section Edit", time: "1w ago • 14:15 - 14:27", appsCount: 3, duration: "12m" },
+        { name: "Feature Grid Setup", time: "1w ago • 15:35 - 15:45", appsCount: 2, duration: "10m" },
+        { name: "Asset Compilation", time: "1w ago • 16:50 - 16:55", appsCount: 1, duration: "5m" }
       ]
     },
     {
       id: "rust-auth-api",
       title: "Rust Auth API",
       badge: "Continued 2 times",
-      lastActive: "Yesterday at 18:30",
+      lastActive: "1d ago",
       totalTime: "47m",
       sessionsCount: 2,
       apps: [
