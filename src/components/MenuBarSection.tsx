@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { RotateCcw, Wifi, Sparkles, Search } from "lucide-react";
+import { RotateCcw, Wifi, Sparkles, Search, Layers, LayoutGrid, Globe } from "lucide-react";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -63,9 +63,30 @@ export default function MenuBarSection() {
   ];
 
   const initialMemories = [
-    { id: 1, title: "Design System Redesign", time: "2h ago • 2h 45m" },
-    { id: 2, title: "Next.js Landing Page", time: "5h ago • 12m" },
-    { id: 3, title: "Rust Auth API", time: "1d ago • 47m" }
+    { 
+      id: 1, 
+      title: "Color Palette Refinement", 
+      time: "1h ago • 1h 20m",
+      iconColorClass: "text-[#a78bfa]",
+      iconBgClass: "bg-[#8b5cf6]/10 border-[#8b5cf6]/20",
+      Icon: Layers
+    },
+    { 
+      id: 2, 
+      title: "Typography Scale Setup", 
+      time: "2h ago • 45m",
+      iconColorClass: "text-[#F0A624]",
+      iconBgClass: "bg-[#F0A624]/10 border-[#F0A624]/20",
+      Icon: LayoutGrid
+    },
+    { 
+      id: 3, 
+      title: "Asset Compilation", 
+      time: "1w ago • 5m",
+      iconColorClass: "text-[#10b981]",
+      iconBgClass: "bg-[#10b981]/15 border-[#10b981]/25",
+      Icon: Globe
+    }
   ];
 
   const handleRestore = (id: number) => {
@@ -85,7 +106,7 @@ export default function MenuBarSection() {
             Always there, <span className="text-primary">never in the way</span>
           </h2>
           <p className="text-sm md:text-base text-text-secondary leading-relaxed mb-6">
-            Echo lives quietly in your macOS menu bar. Clicking the menu bar icon gives you instant, keyboard-friendly control to start or stop workflow recording, review recent memories, or restore your context in milliseconds.
+            Echo lives quietly in your macOS menu bar. Clicking the menu bar icon gives you instant, keyboard-friendly control to start or stop workflow recording, review recent sessions, or restore your context in milliseconds.
           </p>
         </div>
 
@@ -202,10 +223,10 @@ export default function MenuBarSection() {
                 )}
               </div>
 
-              {/* Card 2: Recent Memories */}
+              {/* Card 2: Recent Sessions */}
               <div className="flex flex-col gap-2">
                 <span className="text-[10px] font-bold text-text-secondary tracking-wider uppercase block">
-                  Recent Memories
+                  Recent Sessions
                 </span>
 
                 <div className="bg-white/[0.02] border border-white/[0.08] rounded-xl overflow-hidden divide-y divide-white/5">
@@ -216,9 +237,14 @@ export default function MenuBarSection() {
                         key={mem.id}
                         className="py-2 px-2.5 flex items-center justify-between hover:bg-white/2 transition-colors duration-200"
                       >
-                        <div className="min-w-0 pr-2">
-                          <div className="text-xs font-semibold text-foreground truncate">{mem.title}</div>
-                          <div className="text-[9px] text-text-secondary mt-0.5">{mem.time}</div>
+                        <div className="flex items-center gap-3 min-w-0 pr-2">
+                          <div className={`w-7 h-7 shrink-0 rounded-full border flex items-center justify-center ${mem.iconBgClass} ${mem.iconColorClass}`}>
+                            <mem.Icon className="w-3.5 h-3.5" />
+                          </div>
+                          <div className="min-w-0">
+                            <div className="text-xs font-semibold text-foreground truncate">{mem.title}</div>
+                            <div className="text-[9px] text-text-secondary mt-0.5 truncate">{mem.time}</div>
+                          </div>
                         </div>
 
                         {/* Restore Arrow Button */}
