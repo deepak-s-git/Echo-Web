@@ -4,11 +4,12 @@
         <title>Echo</title>
         <item>
             <title>0.1</title>
-            <pubDate>Sat, 25 Jul 2026 10:55:03 +0530</pubDate>
-            <sparkle:version>3</sparkle:version>
+            <pubDate>Sat, 25 Jul 2026 11:08:09 +0530</pubDate>
+            <sparkle:version>4</sparkle:version>
             <sparkle:shortVersionString>0.1</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>26.4</sparkle:minimumSystemVersion>
-            <enclosure url="https://echo-macos.vercel.app/Echo.zip" length="8404684" type="application/octet-stream" sparkle:edSignature="kYNumJ/IitpFLa07m+FUjNGcVk7YYwGSvXGh+YAtQ3H2c1uDWMytxX7ToCM1GDsSoZRRiJ51SBU2FZ5tu1DrBQ=="/>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <enclosure url="https://echo-macos.vercel.app/Echo.zip" length="8938040" type="application/octet-stream" sparkle:edSignature="bEn4tPNXkDap3ZXSJgyIAyrLzq9PNXBHryQvvhYL+/Rg9jL8N5H/7/AopJQY4Dn4fVFHlj+vl+vq5NZXDvIRBg=="/>
         </item>
     </channel>
 </rss>
